@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-teal-500: oklch(0.5427 0.1207 210.61);
+  --color-teal-600: oklch(0.4875 0.1162 210.92);
+  --color-teal-700: oklch(0.4353 0.1122 211.02);
+  --color-pink-100: oklch(0.9737 0.0191 17.59);
+  --color-pink-200: oklch(0.9463 0.0363 17.54);
+  --color-pink-300: oklch(0.9114 0.0548 17.62);
+  --color-pink-400: oklch(0.7657 0.1233 10.89);
+  --color-pink-500: oklch(0.7059 0.1232 10.59);
+}
+
