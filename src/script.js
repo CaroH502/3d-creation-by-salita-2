@@ -87,3 +87,9 @@ openMenuBtn.addEventListener('click', () => {
         }, 5000);
     }
 });
+
+document.getElementById('mobile-menu').addEventListener('click', (e) => {
+  if (e.target.tagName === 'A') {
+    document.getElementById('mobile-menu').classList.remove('open');
+  }
+});
