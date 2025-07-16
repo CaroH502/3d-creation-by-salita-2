@@ -326,7 +326,7 @@
         <a href="#realisations" class="text-sm lg:text-base text-black hover:text-teal-700">Réalisations</a>
         <a href="#about" class="text-sm lg:text-base text-black hover:text-teal-700">A propos</a>
         <a href="#contact" class="text-sm lg:text-base text-black hover:text-teal-700">Contact</a>
-        <a href="/devis.html " target="_blank"
+        <a href="/devis.html" target="_blank"
           class="border-2 border-teal-500 text-teal-500 px-3 py-1.5 lg:px-4 lg:py-2 text-sm lg:text-base hover:bg-teal-500 hover:text-white transition duration-300">
           Obtenir un devis
         </a>
@@ -340,49 +340,48 @@
  <!-- HERO -->
 <section class="pt-24 mb-8 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40">
   <div class="grid grid-cols-1 lg:grid-cols-12">
-    
+
     <!-- IMAGE en premier sur mobile, à droite en desktop -->
     <div class="lg:col-span-7 order-1 lg:order-2">
-      <div class="px-6 sm:px-8 md:px-10 lg:px-0">
+      <div class="px-6 sm:px-20 md:px-20 lg:pl-0 lg:pr-30">
         <div class="relative w-full">
           <img src="./src/images/villa-hero.png" alt="Maison 3D"
                class="w-full h-auto object-contain mx-auto">
-          <!-- Cadre décoratif -->
           <img src="./src/images/cadre.svg" alt="Cadre décoratif"
-               class="absolute w-[40%] bottom-[-5%] right-[-5%] pointer-events-none">
+               class="hidden lg:block absolute w-[50%] bottom-[-5%] lg:right-[-5.5%] right-[-5.5%] pointer-events-none">
         </div>
       </div>
     </div>
 
     <!-- TEXTE en 2e sur mobile, à gauche en desktop -->
-    <div class="lg:col-span-5 order-2 lg:order-1 bg-pink-100 p-6 sm:p-8 md:p-10 lg:p-12">
-      
-     <!-- Layout en grid sous lg, flex à partir de lg -->
-<div class="grid grid-cols-1 sm:grid-cols-2 items-center justify-items-center gap-4 h-full lg:flex lg:flex-col lg:justify-center lg:items-start">
-  
-  <!-- Colonne 1 : Titre -->
-  <h1 class="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-medium text-left lg:text-left">
-    Des projections qui reflètent la réalité !
-  </h1>
+    <div class="lg:col-span-5 order-2 lg:order-1 bg-transparent sm:bg-pink-100 p-6 sm:p-8 md:p-10 lg:p-12">
 
-  <!-- Colonne 2 : Bouton -->
-  <div class="flex justify-center lg:justify-start">
-    <a href="#devis"
-       class="btn-1 group text-white bg-teal-500 relative overflow-hidden inline-block px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base cursor-pointer">
-      <span class="absolute inset-0 pointer-events-none z-0"></span>
-      <span class="text-md md:text-lg lg:text-lg relative z-10 flex items-center gap-2">
-        Modéliser votre projet
-        <img src="./src/images/arrow-up-right.svg" alt="" class="w-auto h-full" />
-      </span>
-    </a>
+      <!-- Layout en grid sous lg, flex à partir de lg -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 items-center justify-items-start gap-4 h-full lg:flex lg:flex-col lg:justify-center lg:items-start">
+        
+        <!-- Colonne 1 : Titre -->
+        <div class="relative w-full top-[-40px] sm:top-0">
+          <h1 class="bg-pink-100 px-3 py-4 lg:bg-transparent lg:px-0 lg:py-0 md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-medium text-left">
+            Des projections qui reflètent la réalité !
+          </h1>
+        </div>
+
+        <!-- Colonne 2 : Bouton aligné avec l'image -->
+        <div class="w-full flex relative justify-end">
+          <a href="/devis.html"
+             class="relative top-[-70px] sm:top-0 btn-1 group text-white bg-teal-500 relative overflow-hidden inline-block px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base cursor-pointer">
+            <span class="absolute inset-0 pointer-events-none z-0"></span>
+            <span class="text-md md:text-lg lg:text-lg relative z-10 flex items-center gap-2">
+              Modéliser votre projet
+              <img src="./src/images/arrow-up-right.svg" alt="" class="w-auto h-full" />
+            </span>
+          </a>
+        </div>
+
+      </div>
+    </div>
   </div>
-
-</div>
-
 </section>
-
-
-
 
   <!-- Why Choose Us Section -->
   <section class="relative mb-8 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24">
@@ -443,7 +442,7 @@
   <section id="services" class="relative mb-8 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24">
     <!-- Bandeau rose en arrière-plan -->
     <div
-      class="absolute h-[87%] top-[56%] sm:top-[57%] sm:h-[35rem] md:top-[57%] xl:top-[60%] 2xl:top-[63%] left-0 right-0 transform -translate-y-1/2 h-64 sm:h-80 md:h-[60%] lg:h-[400px] bg-pink-100 z-0">
+      class="absolute top-[53%] sm:top-[57%] md:top-[57%] lg:top-[58%] xl:top-[60%] 2xl:top-[63%] left-0 right-0 transform -translate-y-1/2 h-50 h-[70%] sm:h-[62%] lg:h-[380px] bg-pink-100 z-0">
     </div>
 
     <div class="figma-container relative z-10">
@@ -517,7 +516,7 @@
 
         <!-- Carte 6 : Bouton d'appel à l'action -->
         <div class="col-span-12 sm:col-span-6 lg:col-span-4 flex justify-center items-center">
-          <a href="#devis"
+          <a href="/devis.html"
             class="btn-1 bg-teal-500 text-white relative overflow-hidden inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 mt-3 sm:mt-4 text-sm sm:text-base cursor-pointer gap-2 h-10 sm:h-12">
             <span class="absolute inset-0 pointer-events-none z-0"></span>
             <span class="text-md md:text-lg lg:text-lg relative z-10">Estimer votre projet</span>
@@ -538,7 +537,7 @@
       <div class="figma-grid items-center">
         <!-- Colonne 1 -->
         <div class="mt-12 sm:mt-0 lg:items-left justify-center col-span-12 lg:col-span-6 flex items-center h-full">
-          <h3 class="pb-4 text-center pr-4 sm:pr-6 lg:pr-8 text-sm sm:text-base lg:text-md xl:text-lg">
+          <h3 class="pb-4 text-center  lg:text-left pr-4 sm:pr-6 lg:pr-8 text-sm sm:text-base lg:text-md xl:text-lg">
             Confiez-nous la modélisation 3D de votre projet pour un rendu précis et adapté à vos besoins.
             <br><br>
             Deux options s'offrent à vous :
@@ -552,7 +551,7 @@
             <img src="./src/images/service-6-avec-rendu.png" alt="Modélisation 3D avec texture"
               class="w-full rounded-none">
             <img src="./src/images/cadre.svg" alt="Cadre décoratif"
-              class="absolute w-[40%] bottom-[2%] right-[-5%] pointer-events-none">
+              class="absolute w-[50%] bottom-[4%] sm:bottom-[2.2%] lg:bottom-[3%] right-[-5%] pointer-events-none">
             <p class="text-sm sm:text-base lg:text-md text-left mt-2 text-teal-500">Avec texture</p>
           </div>
 
@@ -561,7 +560,7 @@
             <img src="./src/images/service-7-sans-rendu.png" alt="Modélisation 3D sans texture"
               class="w-full rounded-none">
             <img src="./src/images/cadre.svg" alt="Cadre décoratif"
-              class="absolute w-[40%] bottom-[2%] left-[-5%] scale-x-[-1] pointer-events-none">
+              class="absolute w-[50%] bottom-[4%] sm:bottom-[2.2%] lg:bottom-[3%] left-[-5%] scale-x-[-1] pointer-events-none">
             <p class="text-sm sm:text-base lg:text-md text-right mt-2 text-teal-500">Sans texture</p>
           </div>
         </div>
@@ -597,7 +596,7 @@
 
           <p class="text-sm sm:text-base">
             Obtenez un devis personnalisé en remplissant notre
-            <a href="#devis" class="text-teal-500 font-medium underline transition duration-200">
+            <a href="/devis.html" class="text-teal-500 font-medium underline transition duration-200">
               formulaire
             </a>
             selon vos besoins spécifiques pour une solution sur mesure.
@@ -708,7 +707,7 @@
         Contactez-nous dès aujourd'hui pour demander votre devis sans engagement et donnez vie à vos plans
         en 3D !
       </p>
-      <a href="#devis"
+      <a href="/devis.html"
          class="md:mt-6 lg:mt-7 xl:mt-9 2xl:mt-10 btn-1 bg-teal-500 text-white 
          relative overflow-hidden inline-flex items-center gap-2 px-4 py-2 
          sm:px-6 sm:py-3 mt-3 sm:mt-4 md:mt-8 text-sm sm:text-base cursor-pointer w-max h-10 sm:h-12">
@@ -736,7 +735,7 @@
           <div class="relative w-full">
             <img src="./src/images/photo-sarah.jpeg" alt="Fondatrice" class="w-full rounded-none">
             <img src="./src/images/cadre.svg" alt="Cadre décoratif"
-              class="absolute scale-x-[-1] w-[70%] bottom-[1.5%] left-[-8%] pointer-events-none">
+              class="absolute scale-x-[-1] w-[50%] lg:w-[90%] bottom-[0.5%] left-[-8%] md:left-[-10%] lg:bottom-[0.7rem] pointer-events-none">
             <p class="mb-12 sm:mb-8 text-sm sm:text-base lg:text-md text-right mt-2 text-teal-500">Sarah</p>
           </div>
         </div>
