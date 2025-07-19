@@ -1,13 +1,250 @@
-@import "tailwindcss";
 
-@theme {
-  --color-teal-500: oklch(0.5427 0.1207 210.61);
-  --color-teal-600: oklch(0.4875 0.1162 210.92);
-  --color-teal-700: oklch(0.4353 0.1122 211.02);
-  --color-pink-100: oklch(0.9737 0.0191 17.59);
-  --color-pink-200: oklch(0.9463 0.0363 17.54);
-  --color-pink-300: oklch(0.9114 0.0548 17.62);
-  --color-pink-400: oklch(0.7657 0.1233 10.89);
-  --color-pink-500: oklch(0.7059 0.1232 10.59);
+
+/* Atkinson pour les titres */
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Atkinson Hyperlegible', sans-serif;
 }
 
+/* Inter pour le reste du texte */
+body {
+  font-family: 'Inter', sans-serif;
+  color: #111827;
+  /* text-gray-900 */
+}
+
+/* Tailles */
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 35px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 27px;
+}
+
+.label {
+  font-size: 27px;
+  font-family: 'Inter', sans-serif;
+}
+
+.nomcard {
+  font-size: 50px;
+  font-family: 'Inter', sans-serif;
+}
+
+
+
+
+.feature-icon {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.feature-icon.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carousel-prev {
+  left: 10px;
+}
+
+.carousel-next {
+  right: 10px;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+.carousel-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(170, 201, 205, 0.5);
+  cursor: pointer;
+}
+
+.carousel-indicator.active {
+  background-color: #0D7A8A;
+}
+
+.mobile-menu {
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+/* Figma Grid System */
+.figma-container {
+
+  margin: 0 auto;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+@media (min-width: 640px) {
+  .figma-container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .figma-container {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .figma-container {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+
+}
+
+@media (min-width: 1440px) {
+  .figma-container {
+    padding-left: 7.5rem;
+    /* 120px */
+    padding-right: 7.5rem;
+    /* 120px */
+  }
+}
+
+@media (min-width: 1536px) {
+  .figma-container {
+    padding-left: 17vw;
+    padding-right: 17vw;
+  }
+}
+
+.figma-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  /* 32px gutter */
+}
+
+@media (max-width: 767px) {
+  .figma-grid {
+    gap: 1rem;
+    /* 16px gutter on mobile */
+  }
+}
+
+a.btn-1 {
+  position: relative;
+  background-color: #0D7A8A;
+  transition: background 0.3s ease;
+  border: none;
+}
+
+/* Bordures horizontales */
+a.btn-1::before,
+a.btn-1::after {
+  content: "";
+  height: 2px;
+  width: 0;
+  position: absolute;
+  background: #dffbff;
+  /* teal foncé */
+  transition: all 0.3s linear;
+}
+
+a.btn-1::before {
+  top: 0;
+  right: 0;
+  transition-delay: 0.2s;
+}
+
+a.btn-1::after {
+  bottom: 0;
+  left: 0;
+  transition-delay: 0.2s;
+}
+
+/* Bordures verticales : appliquées au span (pleinement étendu) */
+a.btn-1 span:first-child::before,
+a.btn-1 span:first-child::after {
+  content: "";
+  width: 2px;
+  height: 0;
+  position: absolute;
+  background: #dffbff;
+  transition: all 0.3s linear;
+}
+
+a.btn-1 span:first-child::before {
+  left: 0;
+  top: 0;
+  transition-delay: 0s;
+}
+
+a.btn-1 span:first-child::after {
+  right: 0;
+  bottom: 0;
+  transition-delay: 0s;
+}
+
+/* Hover */
+a.btn-1:hover::before,
+a.btn-1:hover::after {
+  width: 100%;
+  transition-delay: 0s;
+}
+
+a.btn-1:hover span:first-child::before,
+a.btn-1:hover span:first-child::after {
+  height: 100%;
+  transition-delay: 0.2s;
+}

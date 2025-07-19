@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="src/images/favicon.svg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&family=Inter:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="./src/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3D Creation by Salita</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
@@ -38,259 +37,6 @@
       }
     }
   </script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-
-
-    /* Atkinson pour les titres */
-    h1,
-    h2,
-    h3,
-    h4 {
-      font-family: 'Atkinson Hyperlegible', sans-serif;
-    }
-
-    /* Inter pour le reste du texte */
-    body {
-      font-family: 'Inter', sans-serif;
-      color: #111827;
-      /* text-gray-900 */
-    }
-
-    /* Tailles */
-    h1 {
-      font-size: 40px;
-    }
-
-    h2 {
-      font-size: 35px;
-    }
-
-    h3 {
-      font-size: 30px;
-    }
-
-    h4 {
-      font-size: 27px;
-    }
-
-    .label {
-      font-size: 27px;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .nomcard {
-      font-size: 50px;
-      font-family: 'Inter', sans-serif;
-    }
-
-
-
-
-    .feature-icon {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .feature-icon.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .carousel {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .carousel-inner {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-
-    .carousel-item {
-      flex: 0 0 100%;
-    }
-
-    .carousel-control {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(255, 255, 255, 0.7);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 10;
-    }
-
-    .carousel-prev {
-      left: 10px;
-    }
-
-    .carousel-next {
-      right: 10px;
-    }
-
-    .carousel-indicators {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 1rem;
-      margin-bottom: 3rem;
-    }
-
-    .carousel-indicator {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background-color: rgba(170, 201, 205, 0.5);
-      cursor: pointer;
-    }
-
-    .carousel-indicator.active {
-      background-color: #0D7A8A;
-    }
-
-    .mobile-menu {
-      transform: translateX(-100%);
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .mobile-menu.open {
-      transform: translateX(0);
-    }
-
-    /* Figma Grid System */
-    .figma-container {
-
-      margin: 0 auto;
-      padding-left: 3rem;
-      padding-right: 3rem;
-    }
-
-    @media (min-width: 640px) {
-      .figma-container {
-        padding-left: 4rem;
-        padding-right: 4rem;
-      }
-    }
-
-    @media (min-width: 768px) {
-      .figma-container {
-        padding-left: 5rem;
-        padding-right: 5rem;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .figma-container {
-        padding-left: 6rem;
-        padding-right: 6rem;
-      }
-
-    }
-
-    @media (min-width: 1440px) {
-      .figma-container {
-        padding-left: 7.5rem;
-        /* 120px */
-        padding-right: 7.5rem;
-        /* 120px */
-      }
-    }
-
-    @media (min-width: 1536px) {
-      .figma-container {
-        padding-left: 17vw;
-        padding-right: 17vw;
-      }
-    }
-
-    .figma-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 2rem;
-      /* 32px gutter */
-    }
-
-    @media (max-width: 767px) {
-      .figma-grid {
-        gap: 1rem;
-        /* 16px gutter on mobile */
-      }
-    }
-
-    a.btn-1 {
-      position: relative;
-      background-color: #0D7A8A;
-      transition: background 0.3s ease;
-      border: none;
-    }
-
-    /* Bordures horizontales */
-    a.btn-1::before,
-    a.btn-1::after {
-      content: "";
-      height: 2px;
-      width: 0;
-      position: absolute;
-      background: #dffbff;
-      /* teal foncé */
-      transition: all 0.3s linear;
-    }
-
-    a.btn-1::before {
-      top: 0;
-      right: 0;
-      transition-delay: 0.2s;
-    }
-
-    a.btn-1::after {
-      bottom: 0;
-      left: 0;
-      transition-delay: 0.2s;
-    }
-
-    /* Bordures verticales : appliquées au span (pleinement étendu) */
-    a.btn-1 span:first-child::before,
-    a.btn-1 span:first-child::after {
-      content: "";
-      width: 2px;
-      height: 0;
-      position: absolute;
-      background: #dffbff;
-      transition: all 0.3s linear;
-    }
-
-    a.btn-1 span:first-child::before {
-      left: 0;
-      top: 0;
-      transition-delay: 0s;
-    }
-
-    a.btn-1 span:first-child::after {
-      right: 0;
-      bottom: 0;
-      transition-delay: 0s;
-    }
-
-    /* Hover */
-    a.btn-1:hover::before,
-    a.btn-1:hover::after {
-      width: 100%;
-      transition-delay: 0s;
-    }
-
-    a.btn-1:hover span:first-child::before,
-    a.btn-1:hover span:first-child::after {
-      height: 100%;
-      transition-delay: 0.2s;
-    }
-  </style>
 </head>
 
 <body class="bg-white">
@@ -367,7 +113,7 @@
         </div>
 
         <!-- Colonne 2 : Bouton aligné avec l'image -->
-        <div class="w-full flex relative justify-end">
+        <div class="w-full flex relative justify-end lg:justify-start">
           <a href="/devis.html" rel="noopener noreferrer" target="_blank"
              class="relative top-[-70px] sm:top-0 btn-1 group text-white bg-teal-500 relative overflow-hidden inline-block px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base cursor-pointer">
             <span class="absolute inset-0 pointer-events-none z-0"></span>
@@ -730,8 +476,8 @@
       <h2 class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl  lg:text-start text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
         À propos de l'entreprise
       </h2>
-      <div class="figma-grid items-center">
-        <div class="col-span-12 lg:col-span-4 w-full">
+      <div class="figma-grid items-left sm:gap-12">
+        <div class="col-span-12 lg:col-span-4 sm:col-span-5 w-full">
           <div class="relative w-full">
             <img src="./src/images/photo-sarah.webp" alt="Fondatrice" class="w-full rounded-none" loading="lazy">
             <img src="./src/images/cadre.svg" alt="Cadre décoratif" loading="lazy"
@@ -739,8 +485,8 @@
             <p class="mb-12 sm:mb-8 text-sm sm:text-base lg:text-md text-right mt-2 text-teal-500">Sarah</p>
           </div>
         </div>
-        <div class="col-span-12 lg:col-span-8">
-          <p class="text-sm text-center lg:text-left sm:text-base mb-4 leading-relaxed">
+        <div class="col-span-12 lg:col-span-8 sm:col-span-7">
+          <p class="text-sm sm:text-base mb-4 leading-relaxed">
             Je suis ravie de vous annoncer le lancement de 3D Creation by Salita, mon entreprise
             indépendante !
             <br><br>
@@ -777,12 +523,12 @@
         <!-- Colonne 2 : Contact & Horaires -->
         <div class="col-span-12 md:col-span-4 text-center md:text-left mb-4">
           <h4 class="text-xl sm:text-2xl text-teal-500 mb-1 sm:mb-2">Contact</h4>
-          <p class="text-sm sm:text-base mb-6 sm:mb-8">
-            info@3dcreationbysalita.ch<br>
-            +41 79 107 78 73
+          <p class="text-sm sm:text-base mb-6 sm:mb-8 ">
+            <a href="mailto:info@3dcreationbysalita.ch" class="hover:underline hover:text-teal-700">info@3dcreationbysalita.ch</a><br>
+            <a href="tel:+41791077873" class="hover:underline hover:text-teal-700">+41 79 107 78 73</a>
           </p>
         
-          <h4 class="text-lg sm:text-xl text-teal-500 mb-1 sm:mb-2">Horaires</h4>
+          <h4 class="text-xl sm:text-2xl text-teal-500 mb-1 sm:mb-2">Horaires</h4>
           <p class="text-sm sm:text-base">
             Lundi - Vendredi<br>
             9:00 - 12:00<br>
@@ -813,5 +559,4 @@
   </section>
   <script src="./src/script.js"></script>
 </body>
-
 </html>
