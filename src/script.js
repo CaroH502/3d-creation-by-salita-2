@@ -86,10 +86,26 @@ openMenuBtn.addEventListener('click', () => {
             updateCarousel();
         }, 5000);
     }
-});
 
-document.getElementById('mobile-menu').addEventListener('click', (e) => {
+    document.getElementById('mobile-menu').addEventListener('click', (e) => {
   if (e.target.tagName === 'A') {
     document.getElementById('mobile-menu').classList.remove('open');
   }
+}); 
+
+document.getElementById("open-menu").addEventListener("click", function () {
+  const icon = document.getElementById("menu-icon");
+
+  // Vérifie si l'icône actuelle est un "bars"
+  if (icon.classList.contains("fa-bars")) {
+    icon.classList.remove("fa-bars");
+    icon.classList.add("fa-times"); // Change en croix
+  } else {
+    icon.classList.remove("fa-times");
+    icon.classList.add("fa-bars"); // Remet le hamburger
+  }
 });
+});
+
+
+

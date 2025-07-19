@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
  <meta charset="UTF-8" />
+  <meta name="description" content="">
   <link rel="icon" type="image/svg+xml" href="src/images/favicon.svg" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&family=Inter:wght@300;400;500;600;700&display=swap" />
@@ -43,7 +44,7 @@
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 w-full h-full bg-white z-50 flex flex-col p-6 sm:p-8">
     <div class="flex justify-between items-center mb-8 sm:mb-12">
-      <button id="close-menu" class="text-teal-500 text-2xl sm:text-3xl">
+      <button aria-label="bouton du menu burger" id="close-menu" class="text-teal-500 text-2xl sm:text-3xl">
         <i class="fas fa-times"></i>
       </button>
     </div>
@@ -78,7 +79,7 @@
         </a>
       </nav>
       <button id="open-menu" class="md:hidden text-teal-500 text-xl sm:text-2xl">
-        <i class="fas fa-bars"></i>
+        <i id="menu-icon" class="fas fa-bars"></i>
       </button>
     </div>
   </header>
@@ -130,7 +131,7 @@
 </section>
 
   <!-- Why Choose Us Section -->
-  <section class="relative mb-8 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24">
+  <section class="relative mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24">
     <!-- Bandeau rose pleine largeur -->
     <div
       class=" h-[80%] top-[56%] sm:top-[57%] sm:h-[35rem] md:top-[57%] absolute left-0 right-0 top-1/2 transform -translate-y-1/2 h-20 sm:h-24 md:h-28 lg:h-32 xl:h-[112px] bg-pink-100 z-0">
@@ -185,7 +186,7 @@
 
 
   <!-- Services Section -->
-  <section id="services" class="relative mb-8 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24">
+  <section id="services" class="relative mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24">
     <!-- Bandeau rose en arrière-plan -->
     <div
       class="absolute top-[53%] sm:top-[57%] md:top-[57%] lg:top-[58%] xl:top-[60%] 2xl:top-[63%] left-0 right-0 transform -translate-y-1/2 h-50 h-[70%] sm:h-[62%] lg:h-[380px] bg-pink-100 z-0">
@@ -274,7 +275,7 @@
   </section>
 
   <!-- 2e part -->
-  <section class="relative bg-transparent sm:bg-pink-100 items-center  lg:bg-transparent sm:py-12 md:py-16 mb-8 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24">
+  <section class="relative bg-transparent sm:bg-pink-100 items-center lg:bg-transparent sm:py-12 md:py-16 mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24">
     <!-- Bandeau rose -->
     <div class="absolute inset-0 bg-transparent lg:bg-pink-100 h-48 sm:h-56 md:h-64 lg:h-[300px] top-1/2 -translate-y-1/2 transform z-0">
     </div>
@@ -317,7 +318,7 @@
 
 
   <!-- Process Section -->
-  <section class="relative py-8 sm:py-12 md:py-16mb-8 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24">
+  <section class="relative py-8 sm:py-12 md:py-16 mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24">
     <!-- Bandeau rose responsive -->
     <div class="absolute w-full bg-pink-100 z-0
     h-[70%] top-[18%]
@@ -377,7 +378,7 @@
 
 
   <!-- Realizations Section -->
-  <section id="realisations" class="mb-8 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40">
+  <section id="realisations" class="mb-16 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40">
     <div class="figma-container">
       <h2 class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl  text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
         Nos réalisations 3D
@@ -435,7 +436,7 @@
     </div>
   </section>
 
-<section class="mb-8 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40">
+<section class="mb-16 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40">
   <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-3 xl:gap-6 lg:bg-transparent bg-pink-100 lg:py-0 py-20">
     
     <!-- Bloc rose -->
@@ -471,7 +472,7 @@
 
 
   <!-- About Section -->
-  <section id="about" class="mb-8 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40">
+  <section id="about" class="mb-16 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40">
     <div class="figma-container">
       <h2 class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl  lg:text-start text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
         À propos de l'entreprise
@@ -511,7 +512,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="bg-pink-100 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-40">
+  <section id="contact" class="bg-pink-100 py-8 mb-8 sm:py-12 md:py-16 lg:py-20 xl:py-40">
     <div class="figma-container">
       <div class="figma-grid">
         <!-- Colonne 1 : Logo aligné à gauche -->
@@ -540,16 +541,16 @@
         <div class="col-span-12 md:col-span-4 text-center md:text-left">
           <h4 class="text-xl sm:text-2xl text-teal-500 mb-1 sm:mb-2">Réseaux sociaux</h4>
           <div class="flex space-x-4 justify-center md:justify-start">
-            <a href="https://www.facebook.com/3dcreationbysalita?locale=fr_FR " rel="noopener noreferrer" target="_blank" class="text-pink-400 hover:text-pink-500">
+            <a href="https://www.facebook.com/3dcreationbysalita?locale=fr_FR " aria-label="icone facebook" rel="noopener noreferrer" target="_blank" class="text-pink-400 hover:text-pink-500">
               <i class="fab fa-facebook-f text-lg sm:text-xl"></i>
             </a>
-            <a href="https://www.instagram.com/3dcreation_by_salita" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-500">
+            <a href="https://www.instagram.com/3dcreation_by_salita" target="_blank" aria-label="icone instagram" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-500">
               <i class="fab fa-instagram text-lg sm:text-xl"></i>
             </a>
-            <a href="https://www.linkedin.com/in/sarah-guigner-sgr26/" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-500">
+            <a href="https://www.linkedin.com/in/sarah-guigner-sgr26/" target="_blank" aria-label="icone linkedin" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-500">
               <i class="fab fa-linkedin-in text-lg sm:text-xl"></i>
             </a>
-            <a href="https://ch.pinterest.com/3dcreation_by_salita/" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-500">
+            <a href="https://ch.pinterest.com/3dcreation_by_salita/" target="_blank" aria-label="icone pinterest" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-500">
               <i class="fab fa-pinterest text-lg sm:text-xl"></i>
             </a>
           </div>
