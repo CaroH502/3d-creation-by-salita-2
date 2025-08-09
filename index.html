@@ -41,27 +41,39 @@
 </head>
 
 <body class="bg-white">
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 w-full h-full bg-white z-50 flex flex-col p-6 sm:p-8">
-    <div class="flex justify-between items-center mb-8 sm:mb-12">
-      <button aria-label="bouton du menu burger" id="close-menu" class="text-teal-500 text-2xl sm:text-3xl">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-    <nav class="flex flex-col space-y-6 sm:space-y-8 text-xl sm:text-2xl text-teal-500">
-      <a href="#services" rel="noopener noreferrer" class="hover:text-teal-700">Services</a>
-      <a href="#realisations" rel="noopener noreferrer" class="hover:text-teal-700">Réalisations</a>
-      <a href="#about" rel="noopener noreferrer" class="hover:text-teal-700">A propos</a>
-      <a href="#contact" rel="noopener noreferrer" class="hover:text-teal-700">Contact</a>
-    </nav>
-    <div class="mt-8 sm:mt-12">
-     <a href="./devis.html" rel="noopener noreferrer" target="_blank"
-  class="inline-block border-2 border-teal-500 text-white bg-teal-500 sm:bg-transparent sm:text-teal-500 px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg font-medium hover:bg-teal-500 hover:text-white transition duration-300">
-  Obtenir un devis
-</a>
+<div id="mobile-menu" class="fixed inset-0 z-50 hidden">
+  <div id="mobile-backdrop" class="absolute inset-0 bg-black/40"></div>
 
+  <!-- panneau blanc full width -->
+  <div id="mobile-panel" class="relative h-full w-full bg-white">
+    <!-- contenu étroit (menu + CTA) -->
+    <div id="mobile-content" class="h-full w-[85%] max-w-[320px] p-6 sm:p-8">
+      <!-- header avec X -->
+      <div class="flex justify-between items-center mb-8 sm:mb-12">
+        <button aria-label="bouton du menu burger" id="close-menu" class="text-teal-500 text-2xl sm:text-3xl">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <!-- liens non full width -->
+      <nav class="flex flex-col space-y-6 sm:space-y-8 text-xl sm:text-2xl text-teal-500">
+        <a href="#services" class="w-fit hover:text-teal-700">Services</a>
+        <a href="#realisations" class="w-fit hover:text-teal-700">Réalisations</a>
+        <a href="#about" class="w-fit hover:text-teal-700">A propos</a>
+        <a href="#contact" class="w-fit hover:text-teal-700">Contact</a>
+      </nav>
+
+      <div class="mt-8 sm:mt-12">
+        <a href="./devis.html" target="_blank" rel="noopener noreferrer"
+           class="w-fit inline-block border-2 border-teal-500 text-teal-500 px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg font-medium hover:bg-teal-500 hover:text-white transition duration-300">
+          Obtenir un devis
+        </a>
+      </div>
     </div>
   </div>
+</div>
+
+
 
   <!-- Header -->
   <header class="z-50 fixed top-0 left-0 w-full bg-white py-3 sm:py-4">
