@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
- <meta charset="UTF-8" />
+  <meta charset="UTF-8" />
   <meta name="description" content="">
   <link rel="icon" type="image/svg+xml" href="src/images/favicon.svg" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&family=Inter:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&family=Inter:wght@300;400;500;600;700&display=swap" />
   <link rel="stylesheet" href="./src/style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3D Creation by Salita</title>
@@ -41,37 +43,37 @@
 </head>
 
 <body class="bg-white">
-<div id="mobile-menu" class="fixed inset-0 z-50 hidden">
-  <div id="mobile-backdrop" class="absolute inset-0 bg-black/40"></div>
+  <div id="mobile-menu" class="fixed inset-0 z-50 hidden">
+    <div id="mobile-backdrop" class="absolute inset-0 bg-black/40"></div>
 
-  <!-- panneau blanc full width -->
-  <div id="mobile-panel" class="relative h-full w-full bg-white">
-    <!-- contenu étroit (menu + CTA) -->
-    <div id="mobile-content" class="h-full w-[85%] max-w-[320px] p-6 sm:p-8">
-      <!-- header avec X -->
-      <div class="flex justify-between items-center mb-8 sm:mb-12">
-        <button aria-label="bouton du menu burger" id="close-menu" class="text-teal-500 text-2xl sm:text-3xl">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
+    <!-- panneau blanc full width -->
+    <div id="mobile-panel" class="relative h-full w-full bg-white">
+      <!-- contenu étroit (menu + CTA) -->
+      <div id="mobile-content" class="h-full w-[85%] max-w-[320px] p-6 sm:p-8">
+        <!-- header avec X -->
+        <div class="flex justify-between items-center mb-8 sm:mb-12">
+          <button aria-label="bouton du menu burger" id="close-menu" class="text-teal-500 text-2xl sm:text-3xl">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
 
-      <!-- liens non full width -->
-      <nav class="flex flex-col space-y-6 sm:space-y-8 text-xl sm:text-2xl text-teal-500">
-        <a href="#services" class="w-fit hover:text-teal-700">Services</a>
-        <a href="#realisations" class="w-fit hover:text-teal-700">Réalisations</a>
-        <a href="#about" class="w-fit hover:text-teal-700">A propos</a>
-        <a href="#contact" class="w-fit hover:text-teal-700">Contact</a>
-      </nav>
+        <!-- liens non full width -->
+        <nav class="flex flex-col space-y-6 sm:space-y-8 text-xl sm:text-2xl text-teal-500">
+          <a href="#services" class="w-fit hover:text-teal-700">Services</a>
+          <a href="#realisations" class="w-fit hover:text-teal-700">Réalisations</a>
+          <a href="#about" class="w-fit hover:text-teal-700">A propos</a>
+          <a href="#contact" class="w-fit hover:text-teal-700">Contact</a>
+        </nav>
 
-      <div class="mt-8 sm:mt-12">
-        <a href="./devis.html" target="_blank" rel="noopener noreferrer"
-           class="w-fit inline-block border-2 border-teal-500 text-teal-500 px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg font-medium hover:bg-teal-500 hover:text-white transition duration-300">
-          Obtenir un devis
-        </a>
+        <div class="mt-8 sm:mt-12">
+          <a href="./devis.html" target="_blank" rel="noopener noreferrer"
+            class="w-fit inline-block border-2 border-teal-500 text-teal-500 px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg font-medium hover:bg-teal-500 hover:text-white transition duration-300">
+            Obtenir un devis
+          </a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
 
@@ -79,13 +81,18 @@
   <header class="z-50 fixed top-0 left-0 w-full bg-white py-3 sm:py-4">
     <div class=" figma-container flex justify-between items-center">
       <div class="logo">
-        <img src="./src/images/logo.svg" alt="3D Creation by Salita" loading="lazy" class="h-10 sm:h-12 md:h-14 lg:h-16">
+        <img src="./src/images/logo.svg" alt="3D Creation by Salita" loading="lazy"
+          class="h-10 sm:h-12 md:h-14 lg:h-16">
       </div>
       <nav class="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
-        <a href="#services" rel="noopener noreferrer" class="text-sm lg:text-base text-black hover:text-teal-700">Services</a>
-        <a href="#realisations" rel="noopener noreferrer" class="text-sm lg:text-base text-black hover:text-teal-700">Réalisations</a>
-        <a href="#about" rel="noopener noreferrer" class="text-sm lg:text-base text-black hover:text-teal-700">A propos</a>
-        <a href="#contact" rel="noopener noreferrer" class="text-sm lg:text-base text-black hover:text-teal-700">Contact</a>
+        <a href="#services" rel="noopener noreferrer"
+          class="text-sm lg:text-base text-black hover:text-teal-700">Services</a>
+        <a href="#realisations" rel="noopener noreferrer"
+          class="text-sm lg:text-base text-black hover:text-teal-700">Réalisations</a>
+        <a href="#about" rel="noopener noreferrer" class="text-sm lg:text-base text-black hover:text-teal-700">A
+          propos</a>
+        <a href="#contact" rel="noopener noreferrer"
+          class="text-sm lg:text-base text-black hover:text-teal-700">Contact</a>
         <a href="/devis.html" rel="noopener noreferrer" target="_blank"
           class="border-2 border-teal-500 text-teal-500 px-3 py-1.5 lg:px-4 lg:py-2 text-sm lg:text-base hover:bg-teal-500 hover:text-white transition duration-300">
           Obtenir un devis
@@ -97,51 +104,53 @@
     </div>
   </header>
 
- <!-- HERO -->
-<section class="pt-24 mb-8 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40">
-  <div class="grid grid-cols-1 lg:grid-cols-12">
+  <!-- HERO -->
+  <section class="pt-24 mb-8 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40">
+    <div class="grid grid-cols-1 lg:grid-cols-12">
 
-    <!-- IMAGE en premier sur mobile, à droite en desktop -->
-    <div class="lg:col-span-7 order-1 lg:order-2">
-      <div class="px-6 sm:px-20 md:px-20 lg:pl-0 lg:pr-30">
-        <div class="relative w-full">
-          <img src="./src/images/villa-hero.webp" alt="Maison 3D" loading="lazy"
-               class="w-full h-auto object-contain mx-auto">
-          <img src="./src/images/cadre.svg" alt="Cadre décoratif" loading="lazy"
-               class="hidden lg:block absolute w-[50%] bottom-[-5%] lg:right-[-5.5%] right-[-5.5%] pointer-events-none">
+      <!-- IMAGE en premier sur mobile, à droite en desktop -->
+      <div class="lg:col-span-7 order-1 lg:order-2">
+        <div class="px-6 sm:px-20 md:px-20 lg:pl-0 lg:pr-30">
+          <div class="relative w-full">
+            <img src="./src/images/villa-hero.webp" alt="Maison 3D" loading="lazy"
+              class="w-full h-auto object-contain mx-auto">
+            <img src="./src/images/cadre.svg" alt="Cadre décoratif" loading="lazy"
+              class="hidden lg:block absolute w-[50%] bottom-[-5%] lg:right-[-5.5%] right-[-5.5%] pointer-events-none">
+          </div>
+        </div>
+      </div>
+
+      <!-- TEXTE en 2e sur mobile, à gauche en desktop -->
+      <div class="lg:col-span-5 order-2 lg:order-1 bg-transparent sm:bg-pink-100 p-6 sm:p-8 md:p-10 lg:p-12">
+
+        <!-- Layout en grid sous lg, flex à partir de lg -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 items-center justify-items-start gap-4 h-full lg:flex lg:flex-col lg:justify-center lg:items-start">
+
+          <!-- Colonne 1 : Titre -->
+          <div class="relative w-full top-[-40px] sm:top-0">
+            <h1
+              class="bg-pink-100 px-3 py-4 lg:bg-transparent lg:px-0 lg:py-0 md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-medium text-left">
+              Des projections qui reflètent la réalité !
+            </h1>
+          </div>
+
+          <!-- Colonne 2 : Bouton aligné avec l'image -->
+          <div class="w-full flex relative justify-end lg:justify-start">
+            <a href="/devis.html" rel="noopener noreferrer" target="_blank"
+              class="relative top-[-70px] sm:top-0 btn-1 group text-white bg-teal-500 relative overflow-hidden inline-block px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base cursor-pointer">
+              <span class="absolute inset-0 pointer-events-none z-0"></span>
+              <span class="text-md md:text-lg lg:text-lg relative z-10 flex items-center gap-2">
+                Modéliser votre projet
+                <img src="./src/images/arrow-up-right.svg" alt="" class="w-auto h-full" loading="lazy" />
+              </span>
+            </a>
+          </div>
+
         </div>
       </div>
     </div>
-
-    <!-- TEXTE en 2e sur mobile, à gauche en desktop -->
-    <div class="lg:col-span-5 order-2 lg:order-1 bg-transparent sm:bg-pink-100 p-6 sm:p-8 md:p-10 lg:p-12">
-
-      <!-- Layout en grid sous lg, flex à partir de lg -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 items-center justify-items-start gap-4 h-full lg:flex lg:flex-col lg:justify-center lg:items-start">
-        
-        <!-- Colonne 1 : Titre -->
-        <div class="relative w-full top-[-40px] sm:top-0">
-          <h1 class="bg-pink-100 px-3 py-4 lg:bg-transparent lg:px-0 lg:py-0 md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-medium text-left">
-            Des projections qui reflètent la réalité !
-          </h1>
-        </div>
-
-        <!-- Colonne 2 : Bouton aligné avec l'image -->
-        <div class="w-full flex relative justify-end lg:justify-start">
-          <a href="/devis.html" rel="noopener noreferrer" target="_blank"
-             class="relative top-[-70px] sm:top-0 btn-1 group text-white bg-teal-500 relative overflow-hidden inline-block px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base cursor-pointer">
-            <span class="absolute inset-0 pointer-events-none z-0"></span>
-            <span class="text-md md:text-lg lg:text-lg relative z-10 flex items-center gap-2">
-              Modéliser votre projet
-              <img src="./src/images/arrow-up-right.svg" alt="" class="w-auto h-full" loading="lazy"/>
-            </span>
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- Why Choose Us Section -->
   <section class="relative mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24">
@@ -207,13 +216,15 @@
 
     <div class="figma-container relative z-10">
       <!-- Titre -->
-      <h2 class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl text-center text-teal-500 mb-6 sm:mb- md:mb-8 lg:mb-12 xl:mb-8">
+      <h2
+        class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl text-center text-teal-500 mb-6 sm:mb- md:mb-8 lg:mb-12 xl:mb-8">
         Nos services de modélisation 3D
       </h2>
 
       <!-- Paragraphe -->
       <p class="text-center text-sm sm:text-base mb-8 sm:mb-10 md:mb-12 xl:mb-14 max-w-2xl mx-auto px-4">
-        Transformez votre projet de construction, rénovation ou décoration avec 3D Creation by Salita, qui donne vie à vos idées par des images 3D réalistes et immersives.
+        Transformez votre projet de construction, rénovation ou décoration avec 3D Creation by Salita, qui donne vie à
+        vos idées par des images 3D réalistes et immersives.
       </p>
 
       <!-- Cartes -->
@@ -252,9 +263,8 @@
         <!-- Carte 4 : Espaces Extérieurs & Paysages -->
         <div
           class="col-span-12 sm:col-span-6 lg:col-span-4 bg-white flex flex-col h-full rounded-none transition duration-300">
-          <img
-            src="./src/images/service-6-avec-rendu.webp" loading="lazy"
-            alt="Espaces Extérieurs & Paysages" class="p-1.5 w-full aspect-[3/2] object-cover rounded-none">
+          <img src="./src/images/service-6-avec-rendu.webp" loading="lazy" alt="Espaces Extérieurs & Paysages"
+            class="p-1.5 w-full aspect-[3/2] object-cover rounded-none">
           <div class="p-3 sm:p-4 flex-1 flex items-center justify-center">
             <h3 class="text-md lg:text-md xl:text-lg text-teal-500 text-center">Espaces extérieurs &
               Paysages</h3>
@@ -278,7 +288,8 @@
             class="btn-1 bg-teal-500 text-white relative overflow-hidden inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 mt-3 sm:mt-4 text-sm sm:text-base cursor-pointer gap-2 h-10 sm:h-12">
             <span class="absolute inset-0 pointer-events-none z-0"></span>
             <span class="text-md md:text-lg lg:text-lg relative z-10">Estimer votre projet</span>
-            <img src="./src/images/arrow-up-right.svg" alt="" class="h-full w-auto relative z-10 object-contain" loading="lazy"/>
+            <img src="./src/images/arrow-up-right.svg" alt="" class="h-full w-auto relative z-10 object-contain"
+              loading="lazy" />
           </a>
 
         </div>
@@ -286,9 +297,11 @@
   </section>
 
   <!-- 2e part -->
-  <section class="relative bg-transparent sm:bg-pink-100 items-center lg:bg-transparent sm:py-12 md:py-16 mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24">
+  <section
+    class="relative bg-transparent sm:bg-pink-100 items-center lg:bg-transparent sm:py-12 md:py-16 mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24">
     <!-- Bandeau rose -->
-    <div class="absolute inset-0 bg-transparent lg:bg-pink-100 h-48 sm:h-56 md:h-64 lg:h-[300px] top-1/2 -translate-y-1/2 transform z-0">
+    <div
+      class="absolute inset-0 bg-transparent lg:bg-pink-100 h-48 sm:h-56 md:h-64 lg:h-[300px] top-1/2 -translate-y-1/2 transform z-0">
     </div>
 
     <div class="figma-container relative z-10">
@@ -339,7 +352,8 @@
 
     <div class="figma-container relative z-10">
       <!-- Titre -->
-      <h2 class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
+      <h2
+        class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
         Obtenez votre modélisation 3D en seulement 3 étapes
       </h2>
 
@@ -348,13 +362,15 @@
         <!-- Étape 1 -->
         <div
           class="bg-white lg:bg-transparent col-span-12 lg:col-span-4 flex flex-col items-center text-center p-4 sm:p-6">
-          <img src="./src/images/Chiffre-1.svg" alt="Étape 1" class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-5" loading="lazy"/>
+          <img src="./src/images/Chiffre-1.svg" alt="Étape 1" class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-5"
+            loading="lazy" />
 
           <p class="label text-lg sm:text-xl mb-4 sm:mb-6">Demander un devis</p>
 
           <p class="text-sm sm:text-base">
             Obtenez un devis personnalisé en remplissant notre
-            <a href="/devis.html" rel="noopener noreferrer" target="_blank" class="text-teal-500 font-medium underline transition duration-200">
+            <a href="/devis.html" rel="noopener noreferrer" target="_blank"
+              class="text-teal-500 font-medium underline transition duration-200">
               formulaire
             </a>
             selon vos besoins spécifiques pour une solution sur mesure
@@ -365,7 +381,8 @@
         <!-- Étape 2 -->
         <div
           class="bg-white lg:bg-transparent col-span-12 lg:col-span-4 flex flex-col items-center text-center p-4 sm:p-6">
-          <img src="./src/images/Chiffre-2.svg" alt="Étape 2" class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-5" loading="lazy"/>
+          <img src="./src/images/Chiffre-2.svg" alt="Étape 2" class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-5"
+            loading="lazy" />
           <p class="label text-lg sm:text-xl mb-4 sm:mb-6">Envoi de votre projet</p>
           <p class="text-sm sm:text-base">
             Discutez de votre projet 3D avec nous pour une réalisation fidèle à la réalité, en nous
@@ -376,7 +393,8 @@
         <!-- Étape 3 -->
         <div
           class="bg-white lg:bg-transparent col-span-12 lg:col-span-4 flex flex-col items-center text-center p-4 sm:p-6">
-          <img src="./src/images/Chiffre-3.svg" alt="Étape 3" class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-5" loading="lazy"/>
+          <img src="./src/images/Chiffre-3.svg" alt="Étape 3" class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-5"
+            loading="lazy" />
           <p class="label text-lg sm:text-xl mb-4 sm:mb-6">Réception du projet</p>
           <p class="text-sm sm:text-base">
             Recevez vos images 3D dans les délais convenus, avec des modifications gratuites jusqu'à
@@ -391,100 +409,131 @@
   <!-- Realizations Section -->
   <section id="realisations" class="mb-16 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40">
     <div class="figma-container">
-      <h2 class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl  text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
+      <h2
+        class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl  text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
         Nos réalisations 3D
       </h2>
       <p class="text-center text-sm sm:text-base mb-8 sm:mb-10 md:mb- xl:mb-6 mx-auto px-4">
         Découvrez nos modélisations 3D réalistes et immersives.
-        Chaque projet repose sur une collaboration de confiance, alliant précision et créativité pour transformer votre vision en réalité.
+        Chaque projet repose sur une collaboration de confiance, alliant précision et créativité pour transformer votre
+        vision en réalité.
       </p>
 
       <!-- Carousel -->
+      <!-- Carousel -->
       <div class="carousel mb-8 sm:mb-10 md:mb-12">
-        <div class="carousel-inner">
-          <div class="carousel-item">
+        <div class="carousel-inner flex transition-transform duration-500 ease-out">
+          <div class="carousel-item min-w-full">
             <img src="./src/images/realisations-1-amenagement-interieur-sejour.webp" alt="Réalisation 1" loading="lazy"
               class="w-full h-auto object-contain rounded-none">
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item min-w-full">
             <img src="./src/images/realisations-2-amenagement-paysager.webp" alt="Réalisation 2" loading="lazy"
               class="w-full h-auto object-contain rounded-none">
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item min-w-full">
             <img src="./src/images/realisations-3-maison-individuelle.webp" alt="Réalisation 3" loading="lazy"
               class="w-full h-auto object-contain rounded-none">
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item min-w-full">
             <img src="./src/images/realisations-4-villa.webp" alt="Réalisation 4" loading="lazy"
               class="w-full h-auto object-contain rounded-none">
           </div>
         </div>
-        <div class="carousel-control carousel-prev">
-          <i class="fas fa-chevron-left text-teal-500"></i>
-        </div>
-        <div class="carousel-control carousel-next">
-          <i class="fas fa-chevron-right text-teal-500"></i>
-        </div>
-      </div>
-      <div class="carousel-indicators">
-        <div class="carousel-indicator active"></div>
-        <div class="carousel-indicator"></div>
-        <div class="carousel-indicator"></div>
-        <div class="carousel-indicator"></div>
       </div>
 
-      <div class="text-center">
-        <p class="text-sm sm:text-base mb-4 text-center">
+      <!-- Groupe indicateurs + contrôles -->
+      <div class="flex flex-col items-center gap-4 mt-4 mb-8 sm:mb-10 md:mb-12">
+
+        <!-- Conteneur rectangle avec fond teal clair -->
+        <div class="flex items-center gap-4 px-4 py-2">
+
+          <!-- Bouton précédent (carré) -->
+          <button
+            class="carousel-prev w-10 h-10 flex items-center justify-center border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white transition"
+            aria-label="Image précédente">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+
+          <!-- Indicateurs -->
+          <!-- Indicateurs -->
+<div class="flex items-center gap-2">
+  <button class="carousel-indicator active w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-teal-500/80"></button>
+  <button class="carousel-indicator w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-gray-300"></button>
+  <button class="carousel-indicator w-1.5 h-1.5 sm:h-2.5 bg-gray-300"></button>
+  <button class="carousel-indicator w-1.5 h-1.5 sm:h-2.5 bg-gray-300"></button>
+</div>
+
+
+          <!-- Bouton suivant (carré) -->
+          <button
+            class="carousel-next w-10 h-10 flex items-center justify-center border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white transition"
+            aria-label="Image suivante">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+
+          <!-- Play / Pause (carré) -->
+          <button id="carousel-toggle"
+            class="w-10 h-10 flex items-center justify-center bg-teal-500 text-white hover:bg-teal-600 transition"
+            aria-pressed="true">
+            <i class="fas fa-pause"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Section Instagram -->
+      <div class="mt-12 sm:mt-14 md:mt-16 text-center">
+        <p class="text-sm sm:text-base mb-4">
           Suivez-nous sur Instagram pour voir plus de modélisations 3D<br>
           <a href="https://www.instagram.com/3dcreation_by_salita" rel="noopener noreferrer" target="_blank"
             class="text-teal-500 underline hover:text-teal-700">
             @3dcreation_by_salita
           </a>
         </p>
-
       </div>
+    </div>
     </div>
   </section>
 
-<section class="mb-16 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40">
-  <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-3 xl:gap-6 lg:bg-transparent bg-pink-100 lg:py-0 py-20">
-    
-    <!-- Bloc rose -->
-    <div class=" bg-pink-100 flex flex-col lg:items-left justify-center 
-    lg:h-[18.75rem]">
-      <h3 class="lg:pl-24 lg:text-left text-center pl-0 text-xl md:text-xl lg:text-2xl xl:text-2xl">
-        Vous avez un projet en cours ?
-      </h3>
-    </div>
+  <section class="mb-16 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40">
+    <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-3 xl:gap-6 lg:bg-transparent bg-pink-100 lg:py-0 py-20">
 
-    <!-- Bloc texte + bouton -->
-    <div class="items-center lg:items-start bg-pink-100 lg:bg-transparent flex flex-col justify-center
+      <!-- Bloc rose -->
+      <div class=" bg-pink-100 flex flex-col lg:items-left justify-center 
+    lg:h-[18.75rem]">
+        <h3 class="lg:pl-24 lg:text-left text-center pl-0 text-xl md:text-xl lg:text-2xl xl:text-2xl">
+          Vous avez un projet en cours ?
+        </h3>
+      </div>
+
+      <!-- Bloc texte + bouton -->
+      <div class="items-center lg:items-start bg-pink-100 lg:bg-transparent flex flex-col justify-center
      px-6 md:px-12 ">
-      <p class=" px-12 pb-6 sm:px-0 sm:pb-0 text-sm text-center lg:text-left sm:text-base lg:text-lg max-w-xl text-left mt-6">
-        Contactez-nous dès aujourd'hui pour demander votre devis sans engagement et donnez vie à vos plans
-        en 3D !
-      </p>
-      <a href="/devis.html" target="_blank" rel="noopener noreferrer"
-         class="md:mt-6 lg:mt-7 xl:mt-9 2xl:mt-10 btn-1 bg-teal-500 text-white 
+        <p
+          class=" px-12 pb-6 sm:px-0 sm:pb-0 text-sm text-center lg:text-left sm:text-base lg:text-lg max-w-xl text-left mt-6">
+          Contactez-nous dès aujourd'hui pour demander votre devis sans engagement et donnez vie à vos plans
+          en 3D !
+        </p>
+        <a href="/devis.html" target="_blank" rel="noopener noreferrer" class="md:mt-6 lg:mt-7 xl:mt-9 2xl:mt-10 btn-1 bg-teal-500 text-white 
          relative overflow-hidden inline-flex items-center gap-2 px-4 py-2 
          sm:px-6 sm:py-3 mt-3 sm:mt-4 md:mt-8 text-sm sm:text-base cursor-pointer w-max h-10 sm:h-12">
-        <span class="absolute inset-0 pointer-events-none z-0"></span>
-        <span class="md:text-lg lg:text-lg relative z-10">Demander un devis</span>
-        <img src="./src/images/arrow-up-right.svg" loading="lazy"
-             alt=""
-             class="h-full w-auto object-contain relative z-10" />
-      </a>
-    </div>
+          <span class="absolute inset-0 pointer-events-none z-0"></span>
+          <span class="md:text-lg lg:text-lg relative z-10">Demander un devis</span>
+          <img src="./src/images/arrow-up-right.svg" loading="lazy" alt=""
+            class="h-full w-auto object-contain relative z-10" />
+        </a>
+      </div>
 
-  </div>
-</section>
+    </div>
+  </section>
 
 
 
   <!-- About Section -->
   <section id="about" class="mb-16 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40">
     <div class="figma-container">
-      <h2 class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl  lg:text-start text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
+      <h2
+        class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl  lg:text-start text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
         À propos de l'entreprise
       </h2>
       <div class="figma-grid items-left sm:gap-12">
@@ -535,10 +584,11 @@
         <div class="col-span-12 md:col-span-4 text-center md:text-left mb-4">
           <h4 class="text-xl sm:text-2xl text-teal-500 mb-1 sm:mb-2">Contact</h4>
           <p class="text-sm sm:text-base mb-6 sm:mb-8 ">
-            <a href="mailto:info@3dcreationbysalita.ch" class="hover:underline hover:text-teal-700">info@3dcreationbysalita.ch</a><br>
+            <a href="mailto:info@3dcreationbysalita.ch"
+              class="hover:underline hover:text-teal-700">info@3dcreationbysalita.ch</a><br>
             <a href="tel:+41791077873" class="hover:underline hover:text-teal-700">+41 79 107 78 73</a>
           </p>
-        
+
           <h4 class="text-xl sm:text-2xl text-teal-500 mb-1 sm:mb-2">Horaires</h4>
           <p class="text-sm sm:text-base">
             Lundi - Vendredi<br>
@@ -549,55 +599,35 @@
 
         <!-- Colonne 3 : Réseaux sociaux -->
         <div class="col-span-12 md:col-span-4 text-center md:text-left">
-  <h4 class="text-xl sm:text-2xl text-teal-500 mb-1 sm:mb-2">Réseaux sociaux</h4>
-  <div class="flex space-x-4 justify-center md:justify-start">
+          <h4 class="text-xl sm:text-2xl text-teal-500 mb-1 sm:mb-2">Réseaux sociaux</h4>
+          <div class="flex space-x-4 justify-center md:justify-start">
 
-    <!-- Facebook -->
-    <a href="https://www.facebook.com/3dcreationbysalita?locale=fr_FR" 
-       aria-label="icone facebook" 
-       rel="noopener noreferrer" 
-       target="_blank" 
-       class="hover:opacity-80 transition-opacity">
-      <img src="./src/images/facebook.svg" 
-           alt="Facebook" 
-           class="w-6 h-6 sm:w-7 sm:h-7">
-    </a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/3dcreationbysalita?locale=fr_FR" aria-label="icone facebook"
+              rel="noopener noreferrer" target="_blank" class="hover:opacity-80 transition-opacity">
+              <img src="./src/images/facebook.svg" alt="Facebook" class="w-6 h-6 sm:w-7 sm:h-7">
+            </a>
 
-    <!-- Instagram -->
-    <a href="https://www.instagram.com/3dcreation_by_salita" 
-       target="_blank" 
-       aria-label="icone instagram" 
-       rel="noopener noreferrer" 
-       class="hover:opacity-80 transition-opacity">
-      <img src="./src/images/instagram.svg" 
-           alt="Instagram" 
-           class="w-6 h-6 sm:w-7 sm:h-7">
-    </a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/3dcreation_by_salita" target="_blank" aria-label="icone instagram"
+              rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
+              <img src="./src/images/instagram.svg" alt="Instagram" class="w-6 h-6 sm:w-7 sm:h-7">
+            </a>
 
-    <!-- LinkedIn -->
-    <a href="https://www.linkedin.com/in/sarah-guigner-sgr26/" 
-       target="_blank" 
-       aria-label="icone linkedin" 
-       rel="noopener noreferrer" 
-       class="hover:opacity-80 transition-opacity">
-      <img src="./src/images/linkedin.svg" 
-           alt="LinkedIn" 
-           class="w-6 h-6 sm:w-7 sm:h-7">
-    </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/sarah-guigner-sgr26/" target="_blank" aria-label="icone linkedin"
+              rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
+              <img src="./src/images/linkedin.svg" alt="LinkedIn" class="w-6 h-6 sm:w-7 sm:h-7">
+            </a>
 
-    <!-- Pinterest -->
-    <a href="https://ch.pinterest.com/3dcreation_by_salita/" 
-       target="_blank" 
-       aria-label="icone pinterest" 
-       rel="noopener noreferrer" 
-       class="hover:opacity-80 transition-opacity">
-      <img src="./src/images/pinterest.svg" 
-           alt="Pinterest" 
-           class="w-6 h-6 sm:w-7 sm:h-7">
-    </a>
+            <!-- Pinterest -->
+            <a href="https://ch.pinterest.com/3dcreation_by_salita/" target="_blank" aria-label="icone pinterest"
+              rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
+              <img src="./src/images/pinterest.svg" alt="Pinterest" class="w-6 h-6 sm:w-7 sm:h-7">
+            </a>
 
-  </div>
-</div>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -606,10 +636,11 @@
 </body>
 <footer class="bg-white border-t border-white py-2">
   <div class="container mx-auto px-4 text-center">
-    <a href="/protection-des-donnees.html "rel="noopener noreferrer" target="_blank" 
-       class="text-xs text-teal-500 hover:text-teal-600">
+    <a href="/protection-des-donnees.html " rel="noopener noreferrer" target="_blank"
+      class="text-xs text-teal-500 hover:text-teal-600">
       Protection des données
     </a>
   </div>
 </footer>
+
 </html>

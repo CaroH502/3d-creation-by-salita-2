@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!mobileMenu) return;
     mobileMenu.classList.remove('hidden');
     mobileMenu.classList.add('open');
-    document.body.classList.add('overflow-hidden');
+    document.body.classList.add('overflow-hidden'); // bloque le scroll BG
     setIcon(true);
   }
 
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!mobileMenu) return;
     mobileMenu.classList.add('hidden');
     mobileMenu.classList.remove('open');
-    document.body.classList.remove('overflow-hidden');
+    document.body.classList.remove('overflow-hidden'); // réactive le scroll BG
     setIcon(false);
   }
 
@@ -58,15 +58,10 @@ document.addEventListener('DOMContentLoaded', function () {
   // Clic sur le panneau blanc : si ce n’est PAS un lien (menu/CTA), on ferme
   if (mobilePanel) {
     mobilePanel.addEventListener('click', (e) => {
-      // Si on a cliqué dans la colonne de contenu :
       if (mobileContent && mobileContent.contains(e.target)) {
         const isLinkClick = !!e.target.closest('a');
-        if (!isLinkClick) {
-          // clic dans la zone blanche du contenu (mais pas sur un lien) -> fermer
-          closeMenu();
-        }
+        if (!isLinkClick) closeMenu();
       } else {
-        // clic dans la zone blanche en dehors de la colonne de contenu -> fermer
         closeMenu();
       }
     });
@@ -91,47 +86,104 @@ document.addEventListener('DOMContentLoaded', function () {
   checkScroll();
 
   /* ===========================
-   *  CAROUSEL
-   * =========================== */
-  const carousel = document.querySelector('.carousel');
-  if (carousel) {
-    const carouselInner = document.querySelector('.carousel-inner');
-    const carouselItems = document.querySelectorAll('.carousel-item');
-    const prevBtn = document.querySelector('.carousel-prev');
-    const nextBtn = document.querySelector('.carousel-next');
-    const indicators = document.querySelectorAll('.carousel-indicator');
+ *  CAROUSEL avec Play/Pause
+ * =========================== */
+const carousel = document.querySelector('.carousel');
+if (carousel) {
+  const carouselInner = carousel.querySelector('.carousel-inner');
+  const carouselItems = carousel.querySelectorAll('.carousel-item');
+  const prevBtn = document.querySelector('.carousel-prev');
+  const nextBtn = document.querySelector('.carousel-next');
+  const indicators = document.querySelectorAll('.carousel-indicator');
+  const toggleBtn = document.getElementById('carousel-toggle');
 
-    let currentIndex = 0;
-    const itemCount = carouselItems.length;
+  let currentIndex = 0;
+  const itemCount = carouselItems.length;
+  let autoPlay = true;           // autoplay ON par défaut
+  let autoInterval = null;
+  const AUTOPLAY_MS =3100;
 
-    function updateCarousel() {
-      if (!carouselInner) return;
-      carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
-      indicators.forEach((indicator, index) => {
-        indicator.classList.toggle('active', index === currentIndex);
-      });
-    }
-
-    if (prevBtn) prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + itemCount) % itemCount;
-      updateCarousel();
+  function updateIndicators() {
+    indicators.forEach((el, i) => {
+      el.classList.toggle('active', i === currentIndex);
+      el.classList.toggle('bg-teal-500/80', i === currentIndex);
+      el.classList.toggle('bg-gray-300', i !== currentIndex);
     });
-
-    if (nextBtn) nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % itemCount;
-      updateCarousel();
-    });
-
-    indicators.forEach((indicator, index) => {
-      indicator.addEventListener('click', () => {
-        currentIndex = index;
-        updateCarousel();
-      });
-    });
-
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % itemCount;
-      updateCarousel();
-    }, 5000);
   }
+
+  function updateCarousel() {
+    if (!carouselInner) return;
+    carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+    updateIndicators();
+  }
+
+  function goTo(index) {
+    currentIndex = (index + itemCount) % itemCount;
+    updateCarousel();
+  }
+
+  function next() { goTo(currentIndex + 1); }
+  function prev() { goTo(currentIndex - 1); }
+
+  function startAutoPlay() {
+    stopAutoPlay();
+    autoInterval = setInterval(next, AUTOPLAY_MS);
+    if (toggleBtn) {
+      const iconEl = toggleBtn.querySelector('i');
+      const textEl = toggleBtn.querySelector('span');
+      toggleBtn.setAttribute('aria-pressed', 'true');
+      toggleBtn.setAttribute('aria-label', 'Mettre en pause le carrousel');
+      if (iconEl) iconEl.className = 'fas fa-pause';
+    }
+  }
+
+  function stopAutoPlay() {
+    if (autoInterval) clearInterval(autoInterval);
+    autoInterval = null;
+    if (toggleBtn) {
+      const iconEl = toggleBtn.querySelector('i');
+      const textEl = toggleBtn.querySelector('span');
+      toggleBtn.setAttribute('aria-pressed', 'false');
+      toggleBtn.setAttribute('aria-label', 'Lancer la lecture du carrousel');
+      if (iconEl) iconEl.className = 'fas fa-play';
+    }
+  }
+
+  // boutons précédent / suivant
+  if (prevBtn) prevBtn.addEventListener('click', () => {
+    prev();
+    if (autoPlay) startAutoPlay(); // reset le timer
+  });
+  if (nextBtn) nextBtn.addEventListener('click', () => {
+    next();
+    if (autoPlay) startAutoPlay();
+  });
+
+  // indicateurs cliquables
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+      goTo(index);
+      if (autoPlay) startAutoPlay();
+    });
+  });
+
+  // Play/Pause
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      autoPlay = !autoPlay;
+      if (autoPlay) startAutoPlay(); else stopAutoPlay();
+    });
+  }
+
+  // clavier (accessibilité)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft')  { prev(); if (autoPlay) startAutoPlay(); }
+    if (e.key === 'ArrowRight') { next(); if (autoPlay) startAutoPlay(); }
+  });
+
+  // init
+  updateCarousel();
+  setTimeout(() => { if (autoPlay) startAutoPlay(); }, 100);
+}
+
 });
