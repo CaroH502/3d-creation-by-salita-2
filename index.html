@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="description" content="">
@@ -31,11 +30,10 @@
             }
           },
           spacing: {
-            '14': '3.5rem',   // 56px - title to content spacing
-            '30': '7.5rem',   // 120px - figma margins
-            '40': '10rem',    // 160px - section spacing
+            '14': '3.5rem',
+            '30': '7.5rem',
+            '40': '10rem',
           },
-
         }
       }
     }
@@ -43,8 +41,9 @@
 </head>
 
 <body class="bg-white">
-  <div id="mobile-menu" class="fixed inset-0 z-50 hidden">
-    <div id="mobile-backdrop" class="absolute inset-0 bg-black/40"></div>
+  <!-- Overlay / Panneau mobile -->
+  <div id="mobile-menu" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true" aria-label="Menu mobile" aria-hidden="true">
+    <div id="mobile-backdrop" class="absolute inset-0 bg-black/40" aria-hidden="true"></div>
 
     <!-- panneau blanc full width -->
     <div id="mobile-panel" class="relative h-full w-full bg-white">
@@ -52,13 +51,13 @@
       <div id="mobile-content" class="h-full w-[85%] max-w-[320px] p-6 sm:p-8">
         <!-- header avec X -->
         <div class="flex justify-between items-center mb-8 sm:mb-12">
-          <button aria-label="bouton du menu burger" id="close-menu" class="text-teal-500 text-2xl sm:text-3xl">
-            <i class="fas fa-times"></i>
+          <button aria-label="bouton du menu burger" id="close-menu" class="text-teal-500 text-2xl sm:text-3xl" type="button">
+            <i class="fas fa-times" aria-hidden="true"></i>
           </button>
         </div>
 
         <!-- liens non full width -->
-        <nav class="flex flex-col space-y-6 sm:space-y-8 text-xl sm:text-2xl text-teal-500">
+        <nav class="flex flex-col space-y-6 sm:space-y-8 text-xl sm:text-2xl text-teal-500" aria-label="Navigation principale (mobile)">
           <a href="#services" class="w-fit hover:text-teal-700">Services</a>
           <a href="#realisations" class="w-fit hover:text-teal-700">Réalisations</a>
           <a href="#about" class="w-fit hover:text-teal-700">A propos</a>
@@ -66,25 +65,23 @@
         </nav>
 
         <div class="mt-8 sm:mt-12">
-          <a href="./devis.html" target="_blank" rel="noopener noreferrer"
-            class="w-fit inline-block border-2 border-teal-500 text-teal-500 px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg font-medium hover:bg-teal-500 hover:text-white transition duration-300">
-            Obtenir un devis
-          </a>
+<a href="./devis.html" target="_blank" rel="noopener noreferrer"
+  class="w-fit inline-block bg-teal-500 text-white px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg font-medium hover:bg-blue-600 transition duration-300">
+  Obtenir un devis
+</a>
         </div>
       </div>
     </div>
   </div>
 
-
-
   <!-- Header -->
   <header class="z-50 fixed top-0 left-0 w-full bg-white py-3 sm:py-4">
     <div class=" figma-container flex justify-between items-center">
-      <div class="logo">
+      <div href="#"class="logo">
         <img src="./src/images/logo.svg" alt="3D Creation by Salita" loading="lazy"
           class="h-10 sm:h-12 md:h-14 lg:h-16">
       </div>
-      <nav class="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
+      <nav class="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-8" aria-label="Navigation principale">
         <a href="#services" rel="noopener noreferrer"
           class="text-sm lg:text-base text-black hover:text-teal-700">Services</a>
         <a href="#realisations" rel="noopener noreferrer"
@@ -98,14 +95,15 @@
           Obtenir un devis
         </a>
       </nav>
-      <button id="open-menu" class="md:hidden text-teal-500 text-xl sm:text-2xl">
-        <i id="menu-icon" class="fas fa-bars"></i>
+      <button id="open-menu" class="md:hidden text-teal-500 text-xl sm:text-2xl" aria-expanded="false" aria-controls="mobile-menu" type="button">
+        <i id="menu-icon" class="fas fa-bars" aria-hidden="true"></i>
       </button>
     </div>
   </header>
 
+  <main id="main-content">
   <!-- HERO -->
-  <section class="pt-24 mb-8 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40">
+  <section data-reveal class="pt-24 mb-8 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40">
     <div class="grid grid-cols-1 lg:grid-cols-12">
 
       <!-- IMAGE en premier sur mobile, à droite en desktop -->
@@ -114,35 +112,30 @@
           <div class="relative w-full">
             <img src="./src/images/villa-hero.webp" alt="Maison 3D" loading="lazy"
               class="w-full h-auto object-contain mx-auto">
-            <img src="./src/images/cadre.svg" alt="Cadre décoratif" loading="lazy"
+            <img src="./src/images/cadre.svg" alt="" aria-hidden="true" loading="lazy"
               class="hidden lg:block absolute w-[50%] bottom-[-5%] lg:right-[-5.5%] right-[-5.5%] pointer-events-none">
           </div>
         </div>
       </div>
 
       <!-- TEXTE en 2e sur mobile, à gauche en desktop -->
-      <div class="lg:col-span-5 order-2 lg:order-1 bg-transparent sm:bg-pink-100 p-6 sm:p-8 md:p-10 lg:p-12">
-
-        <!-- Layout en grid sous lg, flex à partir de lg -->
+      <div class="lg:col-span-5 order-2 lg:order-1 bg-transparent sm:bg-pink-100 p-6 sm:p-8 md:p-10 lg:p-12" aria-labelledby="hero-title">
         <div
           class="grid grid-cols-1 sm:grid-cols-2 items-center justify-items-start gap-4 h-full lg:flex lg:flex-col lg:justify-center lg:items-start">
-
-          <!-- Colonne 1 : Titre -->
           <div class="relative w-full top-[-40px] sm:top-0">
-            <h1
+            <h1 id="hero-title"
               class="bg-pink-100 px-3 py-4 lg:bg-transparent lg:px-0 lg:py-0 md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-medium text-left">
               Des projections qui reflètent la réalité !
             </h1>
           </div>
 
-          <!-- Colonne 2 : Bouton aligné avec l'image -->
           <div class="w-full flex relative justify-end lg:justify-start">
             <a href="/devis.html" rel="noopener noreferrer" target="_blank"
               class="relative top-[-70px] sm:top-0 btn-1 group text-white bg-teal-500 relative overflow-hidden inline-block px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base cursor-pointer">
               <span class="absolute inset-0 pointer-events-none z-0"></span>
               <span class="text-md md:text-lg lg:text-lg relative z-10 flex items-center gap-2">
                 Modéliser votre projet
-                <img src="./src/images/arrow-up-right.svg" alt="" class="w-auto h-full" loading="lazy" />
+                <img src="./src/images/arrow-up-right.svg" alt="" aria-hidden="true" class="w-auto h-full" loading="lazy" />
               </span>
             </a>
           </div>
@@ -153,21 +146,19 @@
   </section>
 
   <!-- Why Choose Us Section -->
-  <section class="relative mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24">
-    <!-- Bandeau rose pleine largeur -->
+  <section data-reveal class="relative mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24" aria-labelledby="why-title">
     <div
-      class=" h-[80%] top-[56%] sm:top-[57%] sm:h-[35rem] md:top-[57%] absolute left-0 right-0 top-1/2 transform -translate-y-1/2 h-20 sm:h-24 md:h-28 lg:h-32 xl:h-[112px] bg-pink-100 z-0">
+      class=" h-[80%] top-[56%] sm:top-[57%] sm:h-[35rem] md:top-[57%] absolute left-0 right-0 top-1/2 transform -translate-y-1/2 h-20 sm:h-24 md:h-28 lg:h-32 xl:h-[112px] bg-pink-100 z-0" aria-hidden="true">
     </div>
 
     <div class="figma-container relative z-10">
-      <h2
+      <h2 id="why-title"
         class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
         Pourquoi choisir 3D Creation by Salita ?
       </h2>
 
       <div class="figma-grid">
-        <!-- Immersion -->
-        <div class=" col-span-12 md:col-span-4 bg-white text-center feature-icon visible p-4 sm:p-6 mb-3">
+        <div class=" col-span-12 md:col-span-4 bg-white text-center feature-icon  p-4 sm:p-6 mb-3">
           <div class="my-6 w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 sm:mb-4 bg-white flex items-center justify-center">
             <img src="./src/images/icone-immersion.webp" alt="cube en 3D avec une face pleine" loading="lazy"
               class="w-full h-full object-contain">
@@ -178,8 +169,7 @@
           </p>
         </div>
 
-        <!-- Transparence -->
-        <div class="col-span-12 md:col-span-4 bg-white text-center feature-icon visible p-4 sm:p-6 mb-3">
+        <div data-reveal style="transition-delay:150ms"class="col-span-12 md:col-span-4 bg-white text-center feature-icon  p-4 sm:p-6 mb-3">
           <div class="my-6 w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 sm:mb-4 bg-white flex items-center justify-center">
             <img src="./src/images/icone-transparence.webp" loading="lazy"
               alt="pictogramme de deux personnes avec une bulle de dialogue" class="w-full h-full object-contain">
@@ -191,8 +181,7 @@
           </p>
         </div>
 
-        <!-- Abordable -->
-        <div class="col-span-12 md:col-span-4 bg-white text-center feature-icon visible p-4 sm:p-6 mb-3">
+        <div data-reveal style="transition-delay:300ms" class="col-span-12 md:col-span-4 bg-white text-center feature-icon  p-4 sm:p-6 mb-3">
           <div class="my-6 w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 sm:mb-4 bg-white flex items-center justify-center">
             <img src="./src/images/icone-abordable.webp" alt="tirelire cochon avec une pièce de monnaie" loading="lazy"
               class="w-full h-full object-contain">
@@ -206,31 +195,25 @@
     </div>
   </section>
 
-
   <!-- Services Section -->
-  <section id="services" class="relative mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24">
-    <!-- Bandeau rose en arrière-plan -->
+  <section data-reveal id="services" class="relative mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24" aria-labelledby="services-title">
     <div
-      class="absolute top-[53%] sm:top-[57%] md:top-[57%] lg:top-[58%] xl:top-[60%] 2xl:top-[63%] left-0 right-0 transform -translate-y-1/2 h-50 h-[70%] sm:h-[62%] lg:h-[380px] bg-pink-100 z-0">
+      class="absolute top-[53%] sm:top-[57%] md:top-[57%] lg:top-[58%] xl:top-[60%] 2xl:top-[63%] left-0 right-0 transform -translate-y-1/2 h-50 h-[70%] sm:h-[62%] lg:h-[380px] bg-pink-100 z-0" aria-hidden="true">
     </div>
 
     <div class="figma-container relative z-10">
-      <!-- Titre -->
-      <h2
+      <h2 id="services-title"
         class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl text-center text-teal-500 mb-6 sm:mb- md:mb-8 lg:mb-12 xl:mb-8">
         Nos services de modélisation 3D
       </h2>
 
-      <!-- Paragraphe -->
       <p class="text-center text-sm sm:text-base mb-8 sm:mb-10 md:mb-12 xl:mb-14 max-w-2xl mx-auto px-4">
         Transformez votre projet de construction, rénovation ou décoration avec 3D Creation by Salita, qui donne vie à
         vos idées par des images 3D réalistes et immersives.
       </p>
 
-      <!-- Cartes -->
       <div class="figma-grid">
-        <!-- Carte 1 : Aménagements Intérieurs -->
-        <div
+        <div 
           class="col-span-12 sm:col-span-6 lg:col-span-4 bg-white flex flex-col h-full rounded-none transition duration-300">
           <img src="./src/images/service-1-amenagement-interieur..webp" alt="Aménagements intérieurs" loading="lazy"
             class="p-1.5 w-full aspect-[3/2] object-cover rounded-none">
@@ -240,8 +223,7 @@
           </div>
         </div>
 
-        <!-- Carte 2 : Villas & Maisons -->
-        <div
+        <div data-reveal style="transition-delay:100ms"
           class="col-span-12 sm:col-span-6 lg:col-span-4 bg-white flex flex-col h-full rounded-none transition duration-300">
           <img src="./src/images/service-5-villa.webp" alt="Villas & Maisons" loading="lazy"
             class="p-1.5 w-full aspect-[3/2] object-cover rounded-none">
@@ -250,8 +232,7 @@
           </div>
         </div>
 
-        <!-- Carte 3 : Immeubles & Bâtiments -->
-        <div
+        <div data-reveal style="transition-delay:200ms"
           class="col-span-12 sm:col-span-6 lg:col-span-4 bg-white flex flex-col h-full rounded-none transition duration-300">
           <img src="./src/images/service-3-immeuble.webp" alt="Immeubles & Bâtiments" loading="lazy"
             class="p-1.5 w-full aspect-[3/2] object-cover rounded-none">
@@ -260,8 +241,7 @@
           </div>
         </div>
 
-        <!-- Carte 4 : Espaces Extérieurs & Paysages -->
-        <div
+        <div data-reveal style="transition-delay:300ms"
           class="col-span-12 sm:col-span-6 lg:col-span-4 bg-white flex flex-col h-full rounded-none transition duration-300">
           <img src="./src/images/service-6-avec-rendu.webp" loading="lazy" alt="Espaces Extérieurs & Paysages"
             class="p-1.5 w-full aspect-[3/2] object-cover rounded-none">
@@ -271,8 +251,7 @@
           </div>
         </div>
 
-        <!-- Carte 5 : Quartiers & Aménagements urbains -->
-        <div
+        <div data-reveal style="transition-delay:400ms"
           class="col-span-12 sm:col-span-6 lg:col-span-4 bg-white flex flex-col h-full rounded-none transition duration-300">
           <img src="./src/images/service-4-quartier.webp" alt="Quartiers & Aménagements urbains" loading="lazy"
             class="p-1.5 w-full aspect-[3/2] object-cover rounded-none">
@@ -282,13 +261,12 @@
           </div>
         </div>
 
-        <!-- Carte 6 : Bouton d'appel à l'action -->
-        <div class="col-span-12 sm:col-span-6 lg:col-span-4 flex justify-center items-center">
+        <div data-reveal style="transition-delay:500ms" class="col-span-12 sm:col-span-6 lg:col-span-4 flex justify-center items-center">
           <a href="/devis.html" rel="noopener noreferrer" target="_blank"
             class="btn-1 bg-teal-500 text-white relative overflow-hidden inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 mt-3 sm:mt-4 text-sm sm:text-base cursor-pointer gap-2 h-10 sm:h-12">
             <span class="absolute inset-0 pointer-events-none z-0"></span>
             <span class="text-md md:text-lg lg:text-lg relative z-10">Estimer votre projet</span>
-            <img src="./src/images/arrow-up-right.svg" alt="" class="h-full w-auto relative z-10 object-contain"
+            <img src="./src/images/arrow-up-right.svg" alt="" aria-hidden="true" class="h-full w-auto relative z-10 object-contain"
               loading="lazy" />
           </a>
 
@@ -297,40 +275,35 @@
   </section>
 
   <!-- 2e part -->
-  <section
-    class="relative bg-transparent sm:bg-pink-100 items-center lg:bg-transparent sm:py-12 md:py-16 mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24">
-    <!-- Bandeau rose -->
+  <section data-reveal
+    class="relative bg-transparent sm:bg-pink-100 items-center lg:bg-transparent sm:py-12 md:py-16 mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24" aria-labelledby="options-title">
     <div
-      class="absolute inset-0 bg-transparent lg:bg-pink-100 h-48 sm:h-56 md:h-64 lg:h-[300px] top-1/2 -translate-y-1/2 transform z-0">
+      class="absolute inset-0 bg-transparent lg:bg-pink-100 h-48 sm:h-56 md:h-64 lg:h-[300px] top-1/2 -translate-y-1/2 transform z-0" aria-hidden="true">
     </div>
 
     <div class="figma-container relative z-10">
       <div class="figma-grid items-center">
-        <!-- Colonne 1 -->
         <div class="mt-12 sm:mt-0 lg:items-left justify-center col-span-12 lg:col-span-6 flex items-center h-full">
-          <h3 class="pb-4 text-center  lg:text-left pr-4 sm:pr-6 lg:pr-8 text-sm sm:text-base lg:text-md xl:text-lg">
+          <h3 id="options-title" class="pb-4 text-center  lg:text-left pr-4 sm:pr-6 lg:pr-8 text-sm sm:text-base lg:text-md xl:text-lg">
             Confiez-nous la modélisation 3D de votre projet pour un rendu précis et adapté à vos besoins.
             <br><br>
             Deux options s'offrent à vous :
           </h3>
         </div>
 
-        <!-- Colonne 2 -->
-        <div class="col-span-12 lg:col-span-6 flex flex-col gap-8 sm:gap-10">
-          <!-- Avec texture -->
+        <div data-reveal style="transition-delay:150ms" class="col-span-12 lg:col-span-6 flex flex-col gap-8 sm:gap-10">
           <div class="relative w-full">
             <img src="./src/images/service-6-avec-rendu.webp" alt="Modélisation 3D avec texture" loading="lazy"
               class="w-full rounded-none">
-            <img src="./src/images/cadre.svg" alt="Cadre décoratif" loading="lazy"
+            <img src="./src/images/cadre.svg" alt="" aria-hidden="true" loading="lazy"
               class="absolute w-[50%] bottom-[4%] sm:bottom-[2.2%] lg:bottom-[3%] right-[-5%] pointer-events-none">
             <p class="text-sm sm:text-base lg:text-md text-left mt-2 text-teal-500">Avec texture</p>
           </div>
 
-          <!-- Sans texture (cadre à gauche + flip vertical) -->
-          <div class="relative w-full">
+          <div data-reveal style="transition-delay:300ms" class="relative w-full">
             <img src="./src/images/service-7-sans-rendu.webp" alt="Modélisation 3D sans texture" loading="lazy"
               class="w-full rounded-none">
-            <img src="./src/images/cadre.svg" alt="Cadre décoratif" loading="lazy"
+            <img src="./src/images/cadre.svg" alt="" aria-hidden="true" loading="lazy"
               class="absolute w-[50%] bottom-[4%] sm:bottom-[2.2%] lg:bottom-[3%] left-[-5%] scale-x-[-1] pointer-events-none">
             <p class="text-sm sm:text-base lg:text-md text-right mt-2 text-teal-500">Sans texture</p>
           </div>
@@ -339,28 +312,22 @@
     </div>
   </section>
 
-
-
   <!-- Process Section -->
-  <section class="relative py-8 sm:py-12 md:py-16 mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24">
-    <!-- Bandeau rose responsive -->
+  <section data-reveal class="relative py-8 sm:py-12 md:py-16 mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24" aria-labelledby="steps-title">
     <div class="absolute w-full bg-pink-100 z-0
     h-[70%] top-[18%]
     lg:top-[35%] lg:translate-y-0 lg:h-[80px] 
-    xl:top-[35.5%]">
+    xl:top-[35.5%]" aria-hidden="true">
     </div>
 
     <div class="figma-container relative z-10">
-      <!-- Titre -->
-      <h2
+      <h2 id="steps-title"
         class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
         Obtenez votre modélisation 3D en seulement 3 étapes
       </h2>
 
-      <!-- Étapes -->
       <div class="figma-grid">
-        <!-- Étape 1 -->
-        <div
+        <div data-reveal style="transition-delay:100ms"
           class="bg-white lg:bg-transparent col-span-12 lg:col-span-4 flex flex-col items-center text-center p-4 sm:p-6">
           <img src="./src/images/Chiffre-1.svg" alt="Étape 1" class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-5"
             loading="lazy" />
@@ -377,9 +344,7 @@
           </p>
         </div>
 
-
-        <!-- Étape 2 -->
-        <div
+        <div data-reveal style="transition-delay:200ms"
           class="bg-white lg:bg-transparent col-span-12 lg:col-span-4 flex flex-col items-center text-center p-4 sm:p-6">
           <img src="./src/images/Chiffre-2.svg" alt="Étape 2" class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-5"
             loading="lazy" />
@@ -390,8 +355,7 @@
           </p>
         </div>
 
-        <!-- Étape 3 -->
-        <div
+        <div data-reveal style="transition-delay:300ms"
           class="bg-white lg:bg-transparent col-span-12 lg:col-span-4 flex flex-col items-center text-center p-4 sm:p-6">
           <img src="./src/images/Chiffre-3.svg" alt="Étape 3" class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-5"
             loading="lazy" />
@@ -405,37 +369,36 @@
     </div>
   </section>
 
-
   <!-- Realizations Section -->
-  <section id="realisations" class="mb-16 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40">
+  <section data-reveal id="realisations" class="mb-16 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40" aria-labelledby="reals-title">
     <div class="figma-container">
-      <h2
+      <h2 id="reals-title"
         class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl  text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
         Nos réalisations 3D
       </h2>
-      <p class="text-center text-sm sm:text-base mb-8 sm:mb-10 md:mb- xl:mb-6 mx-auto px-4">
-        Découvrez nos modélisations 3D réalistes et immersives.
-        Chaque projet repose sur une collaboration de confiance, alliant précision et créativité pour transformer votre
-        vision en réalité.
+      <p class="text-center text-sm sm:text-base mb-8 sm:mb-10 md:mb-12 xl:mb-14 max-w-2xl mx-auto px-4">
+        Découvrez nos modélisations 3D réalistes et immersives.  Chaque projet repose sur une collaboration de confiance, alliant précision et créativité pour transformer votre vision en réalité.
       </p>
 
       <!-- Carousel -->
-      <!-- Carousel -->
-      <div class="carousel mb-8 sm:mb-10 md:mb-12">
-        <div class="carousel-inner flex transition-transform duration-500 ease-out">
-          <div class="carousel-item min-w-full">
+      <div class="carousel mb-8 sm:mb-10 md:mb-12"
+           role="region"
+           aria-roledescription="carousel"
+           aria-label="Nos réalisations 3D">
+        <div class="carousel-inner flex transition-transform duration-500 ease-out" aria-live="off">
+          <div class="carousel-item min-w-full" id="slide-1" role="group" aria-roledescription="slide" aria-label="1 sur 4">
             <img src="./src/images/realisations-1-amenagement-interieur-sejour.webp" alt="Réalisation 1" loading="lazy"
               class="w-full h-auto object-contain rounded-none">
           </div>
-          <div class="carousel-item min-w-full">
+          <div class="carousel-item min-w-full" id="slide-2" role="group" aria-roledescription="slide" aria-label="2 sur 4" aria-hidden="true">
             <img src="./src/images/realisations-2-amenagement-paysager.webp" alt="Réalisation 2" loading="lazy"
               class="w-full h-auto object-contain rounded-none">
           </div>
-          <div class="carousel-item min-w-full">
+          <div class="carousel-item min-w-full" id="slide-3" role="group" aria-roledescription="slide" aria-label="3 sur 4" aria-hidden="true">
             <img src="./src/images/realisations-3-maison-individuelle.webp" alt="Réalisation 3" loading="lazy"
               class="w-full h-auto object-contain rounded-none">
           </div>
-          <div class="carousel-item min-w-full">
+          <div class="carousel-item min-w-full" id="slide-4" role="group" aria-roledescription="slide" aria-label="4 sur 4" aria-hidden="true">
             <img src="./src/images/realisations-4-villa.webp" alt="Réalisation 4" loading="lazy"
               class="w-full h-auto object-contain rounded-none">
           </div>
@@ -444,39 +407,38 @@
 
       <!-- Groupe indicateurs + contrôles -->
       <div class="flex flex-col items-center gap-4 mt-4 mb-8 sm:mb-10 md:mb-12">
-
-        <!-- Conteneur rectangle avec fond teal clair -->
         <div class="flex items-center gap-4 px-4 py-2">
-
           <!-- Bouton précédent (carré) -->
           <button
             class="carousel-prev w-10 h-10 flex items-center justify-center border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white transition"
-            aria-label="Image précédente">
-            <i class="fas fa-chevron-left"></i>
+            aria-label="Image précédente" type="button">
+            <i class="fas fa-chevron-left" aria-hidden="true"></i>
           </button>
 
           <!-- Indicateurs -->
-          <!-- Indicateurs -->
-<div class="flex items-center gap-2">
-  <button class="carousel-indicator active w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-teal-500/80"></button>
-  <button class="carousel-indicator w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-gray-300"></button>
-  <button class="carousel-indicator w-1.5 h-1.5 sm:h-2.5 bg-gray-300"></button>
-  <button class="carousel-indicator w-1.5 h-1.5 sm:h-2.5 bg-gray-300"></button>
-</div>
-
+          <div class="flex items-center gap-2" role="tablist" aria-label="Indicateurs du carrousel">
+            <button class="carousel-indicator active w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rounded-full bg-teal-500/80"
+                    type="button" role="tab" aria-controls="slide-1" aria-selected="true" aria-current="true" aria-label="Aller à la diapo 1"></button>
+            <button class="carousel-indicator w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rounded-full bg-gray-300"
+                    type="button" role="tab" aria-controls="slide-2" aria-selected="false" aria-label="Aller à la diapo 2"></button>
+            <button class="carousel-indicator w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rounded-full bg-gray-300"
+                    type="button" role="tab" aria-controls="slide-3" aria-selected="false" aria-label="Aller à la diapo 3"></button>
+            <button class="carousel-indicator w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rounded-full bg-gray-300"
+                    type="button" role="tab" aria-controls="slide-4" aria-selected="false" aria-label="Aller à la diapo 4"></button>
+          </div>
 
           <!-- Bouton suivant (carré) -->
           <button
             class="carousel-next w-10 h-10 flex items-center justify-center border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white transition"
-            aria-label="Image suivante">
-            <i class="fas fa-chevron-right"></i>
+            aria-label="Image suivante" type="button">
+            <i class="fas fa-chevron-right" aria-hidden="true"></i>
           </button>
 
           <!-- Play / Pause (carré) -->
           <button id="carousel-toggle"
             class="w-10 h-10 flex items-center justify-center bg-teal-500 text-white hover:bg-teal-600 transition"
-            aria-pressed="true">
-            <i class="fas fa-pause"></i>
+            aria-pressed="true" aria-label="Mettre en pause le carrousel" type="button">
+            <i class="fas fa-pause" aria-hidden="true"></i>
           </button>
         </div>
       </div>
@@ -495,19 +457,19 @@
     </div>
   </section>
 
-  <section class="mb-16 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40">
+  <section data-reveal class="mb-16 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40" aria-labelledby="cta-title">
     <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-3 xl:gap-6 lg:bg-transparent bg-pink-100 lg:py-0 py-20">
 
       <!-- Bloc rose -->
-      <div class=" bg-pink-100 flex flex-col lg:items-left justify-center 
+      <div data-reveal style="transition-delay:150ms" class=" bg-pink-100 flex flex-col lg:items-left justify-center 
     lg:h-[18.75rem]">
-        <h3 class="lg:pl-24 lg:text-left text-center pl-0 text-xl md:text-xl lg:text-2xl xl:text-2xl">
+        <h3 id="cta-title" class="lg:pl-24 lg:text-left text-center pl-0 text-xl md:text-xl lg:text-2xl xl:text-2xl">
           Vous avez un projet en cours ?
         </h3>
       </div>
 
       <!-- Bloc texte + bouton -->
-      <div class="items-center lg:items-start bg-pink-100 lg:bg-transparent flex flex-col justify-center
+      <div data-reveal style="transition-delay:300ms"class="items-center lg:items-start bg-pink-100 lg:bg-transparent flex flex-col justify-center
      px-6 md:px-12 ">
         <p
           class=" px-12 pb-6 sm:px-0 sm:pb-0 text-sm text-center lg:text-left sm:text-base lg:text-lg max-w-xl text-left mt-6">
@@ -520,19 +482,17 @@
           <span class="absolute inset-0 pointer-events-none z-0"></span>
           <span class="md:text-lg lg:text-lg relative z-10">Demander un devis</span>
           <img src="./src/images/arrow-up-right.svg" loading="lazy" alt=""
-            class="h-full w-auto object-contain relative z-10" />
+            class="h-full w-auto object-contain relative z-10" aria-hidden="true" />
         </a>
       </div>
 
     </div>
   </section>
 
-
-
   <!-- About Section -->
-  <section id="about" class="mb-16 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40">
+  <section data-reveal id="about" class="mb-16 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40" aria-labelledby="about-title">
     <div class="figma-container">
-      <h2
+      <h2 id="about-title"
         class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl  lg:text-start text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
         À propos de l'entreprise
       </h2>
@@ -540,7 +500,7 @@
         <div class="col-span-12 lg:col-span-4 sm:col-span-5 w-full">
           <div class="relative w-full">
             <img src="./src/images/photo-sarah.webp" alt="Fondatrice" class="w-full rounded-none" loading="lazy">
-            <img src="./src/images/cadre.svg" alt="Cadre décoratif" loading="lazy"
+            <img src="./src/images/cadre.svg" alt="" aria-hidden="true" loading="lazy"
               class="absolute scale-x-[-1] w-[50%] lg:w-[90%] bottom-[0.5%] left-[-8%] md:left-[-10%] lg:bottom-[0.7rem] pointer-events-none">
             <p class="mb-12 sm:mb-8 text-sm sm:text-base lg:text-md text-right mt-2 text-teal-500">Sarah</p>
           </div>
@@ -571,7 +531,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="bg-pink-100 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-40">
+  <section data-reveal id="contact" class="bg-pink-100 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-40" aria-labelledby="contact-title">
     <div class="figma-container">
       <div class="figma-grid">
         <!-- Colonne 1 : Logo aligné à gauche -->
@@ -582,7 +542,7 @@
 
         <!-- Colonne 2 : Contact & Horaires -->
         <div class="col-span-12 md:col-span-4 text-center md:text-left mb-4">
-          <h4 class="text-xl sm:text-2xl text-teal-500 mb-1 sm:mb-2">Contact</h4>
+          <h4 id="contact-title" class="text-xl sm:text-2xl text-teal-500 mb-1 sm:mb-2">Contact</h4>
           <p class="text-sm sm:text-base mb-6 sm:mb-8 ">
             <a href="mailto:info@3dcreationbysalita.ch"
               class="hover:underline hover:text-teal-700">info@3dcreationbysalita.ch</a><br>
@@ -632,9 +592,11 @@
       </div>
     </div>
   </section>
-  <script src="./src/script.js"></script>
+  </main>
+
+  <script src="./src/script.js" defer></script>
 </body>
-<footer class="bg-white border-t border-white py-2">
+<footer class="bg-white border-t border-white py-2" role="contentinfo">
   <div class="container mx-auto px-4 text-center">
     <a href="/protection-des-donnees.html " rel="noopener noreferrer" target="_blank"
       class="text-xs text-teal-500 hover:text-teal-600">
@@ -642,5 +604,4 @@
     </a>
   </div>
 </footer>
-
 </html>
