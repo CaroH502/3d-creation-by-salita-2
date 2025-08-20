@@ -270,3 +270,11 @@ a.btn-1:hover span:first-child::after {
     transform: none !important;
   }
 }
+
+
+@media (min-width: 1536px) {
+  #nav {
+    padding-left: 8rem !important;
+    padding-right: 8rem !important;
+  }
+}
