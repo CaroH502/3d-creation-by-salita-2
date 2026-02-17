@@ -166,31 +166,35 @@ document.addEventListener('DOMContentLoaded', function () {
     function next() { goTo(currentIndex + 1); }
     function prev() { goTo(currentIndex - 1); }
 
-    function startAutoPlay() {
-      stopAutoPlay();
-      autoInterval = setInterval(next, AUTOPLAY_MS);
-      if (toggleBtn) {
-        const iconEl = toggleBtn.querySelector('i');
-        toggleBtn.setAttribute('aria-pressed', 'true');
-        toggleBtn.setAttribute('aria-label', 'Mettre en pause le carrousel');
-        if (iconEl) iconEl.className = 'fas fa-pause';
-      }
-      autoPlay = true;
-      updateSlidesAria();
-    }
+function startAutoPlay() {
+  stopAutoPlay();
+  autoInterval = setInterval(next, AUTOPLAY_MS);
 
-    function stopAutoPlay() {
-      if (autoInterval) clearInterval(autoInterval);
-      autoInterval = null;
-      if (toggleBtn) {
-        const iconEl = toggleBtn.querySelector('i');
-        toggleBtn.setAttribute('aria-pressed', 'false');
-        toggleBtn.setAttribute('aria-label', 'Lancer la lecture du carrousel');
-        if (iconEl) iconEl.className = 'fas fa-play';
-      }
-      autoPlay = false;
-      updateSlidesAria();
-    }
+  if (toggleBtn) {
+    const iconImg = document.getElementById('carousel-icon'); // <-- ton <img>
+    toggleBtn.setAttribute('aria-pressed', 'true');
+    toggleBtn.setAttribute('aria-label', 'Mettre en pause le carrousel');
+    if (iconImg) iconImg.src = './src/images/pause.svg';
+  }
+
+  autoPlay = true;
+  updateSlidesAria();
+}
+
+function stopAutoPlay() {
+  if (autoInterval) clearInterval(autoInterval);
+  autoInterval = null;
+
+  if (toggleBtn) {
+    const iconImg = document.getElementById('carousel-icon');
+    toggleBtn.setAttribute('aria-pressed', 'false');
+    toggleBtn.setAttribute('aria-label', 'Lancer la lecture du carrousel');
+    if (iconImg) iconImg.src = './src/images/play.svg';
+  }
+
+  autoPlay = false;
+  updateSlidesAria();
+}
 
     // boutons précédent / suivant
     if (prevBtn) prevBtn.addEventListener('click', () => {
