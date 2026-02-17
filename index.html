@@ -34,7 +34,9 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/src/images/favicon180.png" />
 
 <!-- Tailwind CDN (reste bloquant si dans head) -->
-<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preload" as="script" href="https://cdn.tailwindcss.com/3.4.17">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+
   <script>
     tailwind.config = {
       theme: {
