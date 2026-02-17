@@ -102,14 +102,9 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', checkScroll);
   checkScroll();
 
-  /* ===========================
-   *  CAROUSEL avec Play/Pause
-   *  + ARIA améliorée
-   * =========================== */
-
 /* ===========================
- *  CAROUSEL infini (sans rembobinage)
- *  + Play/Pause (tes icônes) + ARIA indicateurs
+ *  CAROUSEL infini (sans bug)
+ *  + Play/Pause + ARIA
  * =========================== */
 const carousel = document.querySelector('.carousel');
 if (carousel) {
@@ -123,22 +118,26 @@ if (carousel) {
   if (!carouselInner || originalItems.length === 0) {
     console.warn('Carousel: éléments manquants (.carousel-inner / .carousel-item)');
   } else {
-    // 1) Crée 2 clones (dernier au début, premier à la fin)
+    // IMPORTANT pour éviter de "voir" le jump invisible
+    carousel.classList.add('overflow-hidden');
+
+    // 1) Clones pour boucle infinie
     const firstClone = originalItems[0].cloneNode(true);
-    const lastClone = originalItems[originalItems.length - 1].cloneNode(true);
+    const lastClone  = originalItems[originalItems.length - 1].cloneNode(true);
     firstClone.setAttribute('data-clone', 'true');
     lastClone.setAttribute('data-clone', 'true');
 
     carouselInner.insertBefore(lastClone, originalItems[0]);
     carouselInner.appendChild(firstClone);
 
-    // Liste complète avec clones
+    // Liste complète (avec clones)
     const items = Array.from(carousel.querySelectorAll('.carousel-item'));
     const realCount = originalItems.length;
 
-    // On démarre sur la 1ère "vraie" slide (index 1 car index 0 = clone du dernier)
+    // On démarre sur la 1ère vraie slide (index 1 car index 0 = clone du dernier)
     let currentIndex = 1;
 
+    // Réduire animations
     const prefersReducedMotion =
       window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -146,16 +145,21 @@ if (carousel) {
     let autoInterval = null;
     const AUTOPLAY_MS = 3100;
 
+    // Anti-bug multi-clic pendant transition
+    let isAnimating = false;
+    const TRANSITION_MS = 500; // doit correspondre à duration-500
+    let unlockTimer = null;
+
     const setTransition = (enabled) => {
-      // enabled = true -> on laisse la transition CSS (Tailwind) faire le job
-      // enabled = false -> repositionnement instantané
+      // enabled: true => utilise la transition Tailwind
+      // enabled: false => repositionnement instantané
       carouselInner.style.transition = enabled ? '' : 'none';
     };
 
-    const realIndex = () => (currentIndex - 1 + realCount) % realCount;
+    const getRealIndex = () => (currentIndex - 1 + realCount) % realCount;
 
     function updateIndicators() {
-      const idx = realIndex();
+      const idx = getRealIndex();
       indicators.forEach((el, i) => {
         const isActive = i === idx;
         el.classList.toggle('active', isActive);
@@ -168,22 +172,22 @@ if (carousel) {
     }
 
     function updateSlidesAria() {
-      // On masque les clones, et on n’annonce que la slide "réelle" active
-      const activeReal = realIndex();
+      // Clones toujours cachés, et on expose au focus seulement la slide réelle active
       items.forEach((slide) => {
-        const isClone = slide.getAttribute('data-clone') === 'true';
-        slide.setAttribute('aria-hidden', isClone ? 'true' : 'true'); // par défaut true
-        slide.tabIndex = -1;
+        if (slide.getAttribute('data-clone') === 'true') {
+          slide.setAttribute('aria-hidden', 'true');
+          slide.tabIndex = -1;
+        }
       });
 
-      // active = vrai item correspondant
+      const activeReal = getRealIndex();
       originalItems.forEach((slide, i) => {
         const isActive = i === activeReal;
         slide.setAttribute('aria-hidden', String(!isActive));
         slide.tabIndex = isActive ? 0 : -1;
       });
 
-      if (carouselInner) carouselInner.setAttribute('aria-live', autoPlay ? 'off' : 'polite');
+      carouselInner.setAttribute('aria-live', autoPlay ? 'off' : 'polite');
     }
 
     function updateCarousel() {
@@ -192,43 +196,65 @@ if (carousel) {
       updateSlidesAria();
     }
 
+    function lockControls(locked) {
+      // optionnel: évite spam clics + améliore feeling
+      if (prevBtn) prevBtn.disabled = locked;
+      if (nextBtn) nextBtn.disabled = locked;
+      // (les indicateurs restent cliquables, mais on les bloque aussi via isAnimating)
+      isAnimating = locked;
+    }
+
     function goToInternal(index) {
+      if (isAnimating) return;
+
+      // borne sécurité (0..items.length-1)
+      const max = items.length - 1;
+      if (index < 0) index = 0;
+      if (index > max) index = max;
+
+      lockControls(true);
+      clearTimeout(unlockTimer);
+
       currentIndex = index;
       setTransition(true);
       updateCarousel();
+
+      // fallback si transitionend ne se déclenche pas (rare)
+      unlockTimer = setTimeout(() => {
+        lockControls(false);
+      }, TRANSITION_MS + 80);
     }
 
     function next() { goToInternal(currentIndex + 1); }
     function prev() { goToInternal(currentIndex - 1); }
 
-    // 2) Après chaque transition, si on est sur un clone -> jump invisible
-carouselInner.addEventListener('transitionend', (e) => {
-  if (e.propertyName && e.propertyName !== 'transform') return;
+    // 2) Après transition: si clone => jump invisible + unlock
+    carouselInner.addEventListener('transitionend', (e) => {
+      if (e.propertyName && e.propertyName !== 'transform') return;
 
-  // clone du 1er (tout à droite)
-  if (currentIndex === items.length - 1) {
-    setTransition(false);
-    currentIndex = 1;
-    updateCarousel();
+      // clone du 1er (tout à droite)
+      if (currentIndex === items.length - 1) {
+        setTransition(false);
+        currentIndex = 1;
+        updateCarousel();
+        carouselInner.offsetHeight; // force reflow
+        setTransition(true);
+      }
 
-    // force reflow pour éviter tout "glissement" résiduel
-    carouselInner.offsetHeight;
+      // clone du dernier (tout à gauche)
+      if (currentIndex === 0) {
+        setTransition(false);
+        currentIndex = realCount;
+        updateCarousel();
+        carouselInner.offsetHeight;
+        setTransition(true);
+      }
 
-    requestAnimationFrame(() => setTransition(true));
-  }
+      clearTimeout(unlockTimer);
+      lockControls(false);
+    });
 
-  // clone du dernier (tout à gauche)
-  if (currentIndex === 0) {
-    setTransition(false);
-    currentIndex = realCount;
-    updateCarousel();
-
-    carouselInner.offsetHeight;
-
-    requestAnimationFrame(() => setTransition(true));
-  }
-});
-
+    // Autoplay + icônes
     function startAutoPlay() {
       stopAutoPlay();
       autoInterval = setInterval(next, AUTOPLAY_MS);
@@ -259,7 +285,7 @@ carouselInner.addEventListener('transitionend', (e) => {
       updateSlidesAria();
     }
 
-    // boutons précédent / suivant
+    // Flèches
     if (prevBtn) prevBtn.addEventListener('click', () => {
       prev();
       if (autoPlay) startAutoPlay(); // reset timer
@@ -270,9 +296,10 @@ carouselInner.addEventListener('transitionend', (e) => {
       if (autoPlay) startAutoPlay();
     });
 
-    // indicateurs (ils pointent vers les slides réelles)
+    // Indicateurs
     indicators.forEach((indicator, index) => {
       indicator.addEventListener('click', () => {
+        if (isAnimating) return;
         goToInternal(index + 1); // +1 car index 0 interne = clone
         if (autoPlay) startAutoPlay();
       });
@@ -285,13 +312,13 @@ carouselInner.addEventListener('transitionend', (e) => {
       });
     }
 
-    // clavier global
+    // Clavier global
     document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft')  { prev(); if (autoPlay) startAutoPlay(); }
       if (e.key === 'ArrowRight') { next(); if (autoPlay) startAutoPlay(); }
     });
 
-    // init : positionne sans transition sur la vraie 1ère slide
+    // Init: se placer sur la vraie slide 1 sans transition
     setTransition(false);
     updateCarousel();
     requestAnimationFrame(() => setTransition(true));
