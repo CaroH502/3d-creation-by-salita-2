@@ -106,120 +106,182 @@ document.addEventListener('DOMContentLoaded', function () {
    *  CAROUSEL avec Play/Pause
    *  + ARIA améliorée
    * =========================== */
-  const carousel = document.querySelector('.carousel');
-  if (carousel) {
-    const carouselInner = carousel.querySelector('.carousel-inner');
-    const carouselItems = carousel.querySelectorAll('.carousel-item');
-    const prevBtn = document.querySelector('.carousel-prev');
-    const nextBtn = document.querySelector('.carousel-next');
-    const indicators = document.querySelectorAll('.carousel-indicator');
-    const toggleBtn = document.getElementById('carousel-toggle');
 
-    let currentIndex = 0;
-    const itemCount = carouselItems.length;
+/* ===========================
+ *  CAROUSEL infini (sans rembobinage)
+ *  + Play/Pause (tes icônes) + ARIA indicateurs
+ * =========================== */
+const carousel = document.querySelector('.carousel');
+if (carousel) {
+  const carouselInner = carousel.querySelector('.carousel-inner');
+  const originalItems = Array.from(carousel.querySelectorAll('.carousel-item'));
+  const prevBtn = document.querySelector('.carousel-prev');
+  const nextBtn = document.querySelector('.carousel-next');
+  const indicators = Array.from(document.querySelectorAll('.carousel-indicator'));
+  const toggleBtn = document.getElementById('carousel-toggle');
 
-    // Respecte les préférences "réduire les animations"
-    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!carouselInner || originalItems.length === 0) {
+    console.warn('Carousel: éléments manquants (.carousel-inner / .carousel-item)');
+  } else {
+    // 1) Crée 2 clones (dernier au début, premier à la fin)
+    const firstClone = originalItems[0].cloneNode(true);
+    const lastClone = originalItems[originalItems.length - 1].cloneNode(true);
+    firstClone.setAttribute('data-clone', 'true');
+    lastClone.setAttribute('data-clone', 'true');
 
-    let autoPlay = !prefersReducedMotion;  // OFF si l’utilisateur préfère moins de mouvement
+    carouselInner.insertBefore(lastClone, originalItems[0]);
+    carouselInner.appendChild(firstClone);
+
+    // Liste complète avec clones
+    const items = Array.from(carousel.querySelectorAll('.carousel-item'));
+    const realCount = originalItems.length;
+
+    // On démarre sur la 1ère "vraie" slide (index 1 car index 0 = clone du dernier)
+    let currentIndex = 1;
+
+    const prefersReducedMotion =
+      window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let autoPlay = !prefersReducedMotion;
     let autoInterval = null;
     const AUTOPLAY_MS = 3100;
 
+    const setTransition = (enabled) => {
+      // enabled = true -> on laisse la transition CSS (Tailwind) faire le job
+      // enabled = false -> repositionnement instantané
+      carouselInner.style.transition = enabled ? '' : 'none';
+    };
+
+    const realIndex = () => (currentIndex - 1 + realCount) % realCount;
+
     function updateIndicators() {
+      const idx = realIndex();
       indicators.forEach((el, i) => {
-        const isActive = i === currentIndex;
+        const isActive = i === idx;
         el.classList.toggle('active', isActive);
         el.classList.toggle('bg-teal-500/80', isActive);
         el.classList.toggle('bg-gray-300', !isActive);
         el.setAttribute('aria-selected', String(isActive));
-        if (isActive) {
-          el.setAttribute('aria-current', 'true');
-        } else {
-          el.removeAttribute('aria-current');
-        }
+        if (isActive) el.setAttribute('aria-current', 'true');
+        else el.removeAttribute('aria-current');
       });
     }
 
     function updateSlidesAria() {
-      carouselItems.forEach((slide, i) => {
-        const isActive = i === currentIndex;
+      // On masque les clones, et on n’annonce que la slide "réelle" active
+      const activeReal = realIndex();
+      items.forEach((slide) => {
+        const isClone = slide.getAttribute('data-clone') === 'true';
+        slide.setAttribute('aria-hidden', isClone ? 'true' : 'true'); // par défaut true
+        slide.tabIndex = -1;
+      });
+
+      // active = vrai item correspondant
+      originalItems.forEach((slide, i) => {
+        const isActive = i === activeReal;
         slide.setAttribute('aria-hidden', String(!isActive));
-        // si l’utilisateur navigue au clavier, on peut autoriser le focus sur la diapo active uniquement
         slide.tabIndex = isActive ? 0 : -1;
       });
-      // Met à jour le live region selon l’état autoplay (annonce quand c’est en pause)
+
       if (carouselInner) carouselInner.setAttribute('aria-live', autoPlay ? 'off' : 'polite');
     }
 
     function updateCarousel() {
-      if (!carouselInner) return;
       carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
       updateIndicators();
       updateSlidesAria();
     }
 
-    function goTo(index) {
-      currentIndex = (index + itemCount) % itemCount;
+    function goToInternal(index) {
+      currentIndex = index;
+      setTransition(true);
       updateCarousel();
     }
 
-    function next() { goTo(currentIndex + 1); }
-    function prev() { goTo(currentIndex - 1); }
+    function next() { goToInternal(currentIndex + 1); }
+    function prev() { goToInternal(currentIndex - 1); }
 
-function startAutoPlay() {
-  stopAutoPlay();
-  autoInterval = setInterval(next, AUTOPLAY_MS);
+    // 2) Après chaque transition, si on est sur un clone -> jump invisible
+carouselInner.addEventListener('transitionend', (e) => {
+  if (e.propertyName && e.propertyName !== 'transform') return;
 
-  if (toggleBtn) {
-    const iconImg = document.getElementById('carousel-icon'); // <-- ton <img>
-    toggleBtn.setAttribute('aria-pressed', 'true');
-    toggleBtn.setAttribute('aria-label', 'Mettre en pause le carrousel');
-    if (iconImg) iconImg.src = './src/images/pause.svg';
+  // clone du 1er (tout à droite)
+  if (currentIndex === items.length - 1) {
+    setTransition(false);
+    currentIndex = 1;
+    updateCarousel();
+
+    // force reflow pour éviter tout "glissement" résiduel
+    carouselInner.offsetHeight;
+
+    requestAnimationFrame(() => setTransition(true));
   }
 
-  autoPlay = true;
-  updateSlidesAria();
-}
+  // clone du dernier (tout à gauche)
+  if (currentIndex === 0) {
+    setTransition(false);
+    currentIndex = realCount;
+    updateCarousel();
 
-function stopAutoPlay() {
-  if (autoInterval) clearInterval(autoInterval);
-  autoInterval = null;
+    carouselInner.offsetHeight;
 
-  if (toggleBtn) {
-    const iconImg = document.getElementById('carousel-icon');
-    toggleBtn.setAttribute('aria-pressed', 'false');
-    toggleBtn.setAttribute('aria-label', 'Lancer la lecture du carrousel');
-    if (iconImg) iconImg.src = './src/images/play.svg';
+    requestAnimationFrame(() => setTransition(true));
   }
+});
 
-  autoPlay = false;
-  updateSlidesAria();
-}
+    function startAutoPlay() {
+      stopAutoPlay();
+      autoInterval = setInterval(next, AUTOPLAY_MS);
+
+      if (toggleBtn) {
+        const iconImg = document.getElementById('carousel-icon');
+        toggleBtn.setAttribute('aria-pressed', 'true');
+        toggleBtn.setAttribute('aria-label', 'Mettre en pause le carrousel');
+        if (iconImg) iconImg.src = '/src/images/pause.svg';
+      }
+
+      autoPlay = true;
+      updateSlidesAria();
+    }
+
+    function stopAutoPlay() {
+      if (autoInterval) clearInterval(autoInterval);
+      autoInterval = null;
+
+      if (toggleBtn) {
+        const iconImg = document.getElementById('carousel-icon');
+        toggleBtn.setAttribute('aria-pressed', 'false');
+        toggleBtn.setAttribute('aria-label', 'Lancer la lecture du carrousel');
+        if (iconImg) iconImg.src = '/src/images/play.svg';
+      }
+
+      autoPlay = false;
+      updateSlidesAria();
+    }
 
     // boutons précédent / suivant
     if (prevBtn) prevBtn.addEventListener('click', () => {
       prev();
-      if (autoPlay) startAutoPlay(); // reset le timer
+      if (autoPlay) startAutoPlay(); // reset timer
     });
+
     if (nextBtn) nextBtn.addEventListener('click', () => {
       next();
       if (autoPlay) startAutoPlay();
     });
 
-    // indicateurs cliquables
+    // indicateurs (ils pointent vers les slides réelles)
     indicators.forEach((indicator, index) => {
       indicator.addEventListener('click', () => {
-        goTo(index);
+        goToInternal(index + 1); // +1 car index 0 interne = clone
         if (autoPlay) startAutoPlay();
       });
-      // activation clavier (Enter/Space) gérée nativement par <button>
     });
 
     // Play/Pause
     if (toggleBtn) {
       toggleBtn.addEventListener('click', () => {
-        autoPlay = !autoPlay;
-        if (autoPlay) startAutoPlay(); else stopAutoPlay();
+        autoPlay ? stopAutoPlay() : startAutoPlay();
       });
     }
 
@@ -229,10 +291,15 @@ function stopAutoPlay() {
       if (e.key === 'ArrowRight') { next(); if (autoPlay) startAutoPlay(); }
     });
 
-    // init
+    // init : positionne sans transition sur la vraie 1ère slide
+    setTransition(false);
     updateCarousel();
+    requestAnimationFrame(() => setTransition(true));
+
     if (autoPlay) setTimeout(startAutoPlay, 100);
   }
+}
+
   // Scroll vers le haut au clic sur le logo
 document.querySelectorAll('.logo').forEach(logo => {
   logo.addEventListener('click', (e) => {
