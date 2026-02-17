@@ -2,21 +2,39 @@
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="description"
-    content="Donnez vie à vos projets grâce à des perspectives 3D réalistes, immersives et abordables. Visualisez votre architecture avant construction avec transparence et créativité.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" type="image/svg+xml" href="src/images/favicon.svg" />
-  <link rel="icon" type="image/png" href="/src/images/favicon96.png" sizes="96x96" />
-  <link rel="shortcut icon" href="/src/images/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/src/images/favicon180.png" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>3D Creation by Salita</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<!-- Google Fonts: preload + chargement non bloquant -->
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&family=Inter:wght@300;400;500;600;700&display=swap" />
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&family=Inter:wght@300;400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'" />
+<noscript>
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&family=Inter:wght@300;400;500;600;700&display=swap" />
-  <link rel="stylesheet" href="./src/style.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3D Creation by Salita</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&family=Inter:wght@300;400;500;600;700&display=swap" />
+</noscript>
+
+<!-- Ton CSS local: preload + chargement non bloquant -->
+<link rel="preload" as="style" href="/src/style.css" />
+<link rel="stylesheet" href="/src/style.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="/src/style.css"></noscript>
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="/src/images/favicon.svg" />
+<link rel="icon" type="image/png" href="/src/images/favicon96.png" sizes="96x96" />
+<link rel="shortcut icon" href="/src/images/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/src/images/favicon180.png" />
+
+<!-- Tailwind CDN (reste bloquant si dans head) -->
+<script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -537,7 +555,7 @@
         <div class="figma-grid items-left sm:gap-12">
           <div class="col-span-12 lg:col-span-4 sm:col-span-5 w-full">
             <div class="relative w-full">
-              <img src="/src/images/photo-sarah.webp" alt="Fondatrice"width="1000" height="1249"  class="w-full rounded-none" loading="lazy">
+              <img src="/src/images/photo-sarah.webp" alt="Fondatrice" width="1000" height="1248" class="w-full rounded-none" loading="lazy">
               <img src="/src/images/cadre.svg" alt="cadre décoratif de l'image" aria-hidden="true" loading="lazy"
                 class="absolute scale-x-[-1] w-[50%] lg:w-[90%] bottom-[0.5%] left-[-8%] md:left-[-10%] lg:bottom-[0.7rem] pointer-events-none">
               <p class="mb-12 sm:mb-8 text-sm sm:text-base lg:text-md text-right mt-2 text-teal-500">Sarah</p>
