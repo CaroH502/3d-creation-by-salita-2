@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="description" content="Donnez vie à vos projets grâce à des perspectives 3D réalistes, immersives et abordables. Visualisez votre architecture avant construction avec transparence et créativité.">
+  <meta name="description"
+    content="Donnez vie à vos projets grâce à des perspectives 3D réalistes, immersives et abordables. Visualisez votre architecture avant construction avec transparence et créativité.">
   <link rel="icon" type="image/svg+xml" href="src/images/favicon.svg" />
   <link rel="icon" type="image/png" href="/src/images/favicon96.png" sizes="96x96" />
   <link rel="shortcut icon" href="/src/images/favicon.ico" />
@@ -44,7 +46,8 @@
 
 <body class="bg-white">
   <!-- Overlay / Panneau mobile -->
-  <div id="mobile-menu" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true" aria-label="Menu mobile" aria-hidden="true">
+  <div id="mobile-menu" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true" aria-label="Menu mobile"
+    aria-hidden="true">
     <div id="mobile-backdrop" class="absolute inset-0 bg-black/40" aria-hidden="true"></div>
 
     <!-- panneau blanc full width -->
@@ -53,13 +56,15 @@
       <div id="mobile-content" class="h-full w-[85%] max-w-[320px] p-6 sm:p-8">
         <!-- header avec X -->
         <div class="flex justify-between items-center mb-8 sm:mb-12">
-          <button aria-label="bouton du menu burger" id="close-menu" class="text-teal-500 text-2xl sm:text-3xl" type="button">
+          <button aria-label="bouton du menu burger" id="close-menu" class="text-teal-500 text-2xl sm:text-3xl"
+            type="button">
             <i class="fas fa-times" aria-hidden="true"></i>
           </button>
         </div>
 
         <!-- liens non full width -->
-        <nav class="flex flex-col space-y-6 sm:space-y-8 text-xl sm:text-2xl text-teal-500" aria-label="Navigation principale (mobile)">
+        <nav class="flex flex-col space-y-6 sm:space-y-8 text-xl sm:text-2xl text-teal-500"
+          aria-label="Navigation principale (mobile)">
           <a href="#services" class="w-fit hover:text-teal-700">Services</a>
           <a href="#realisations" class="w-fit hover:text-teal-700">Réalisations</a>
           <a href="#about" class="w-fit hover:text-teal-700">A propos</a>
@@ -67,10 +72,10 @@
         </nav>
 
         <div class="mt-8 sm:mt-12">
-<a href="./devis.html" target="_blank" rel="noopener noreferrer"
-  class="w-fit inline-block bg-teal-500 text-white px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg font-medium hover:bg-blue-600 transition duration-300">
-  Obtenir un devis
-</a>
+          <a href="./devis.html" target="_blank" rel="noopener noreferrer"
+            class="w-fit inline-block bg-teal-500 text-white px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg font-medium hover:bg-blue-600 transition duration-300">
+            Obtenir un devis
+          </a>
         </div>
       </div>
     </div>
@@ -97,509 +102,533 @@
           Obtenir un devis
         </a>
       </nav>
-      <button id="open-menu" class="md:hidden text-teal-500 text-xl sm:text-2xl" aria-expanded="false" aria-controls="mobile-menu" type="button">
+      <button id="open-menu" class="md:hidden text-teal-500 text-xl sm:text-2xl" aria-expanded="false"
+        aria-controls="mobile-menu" type="button">
         <i id="menu-icon" class="fas fa-bars" aria-hidden="true"></i>
       </button>
     </div>
   </header>
 
   <main id="main-content">
-  <!-- HERO -->
-  <section data-reveal class="pt-24 mb-8 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40">
-    <div class="grid grid-cols-1 lg:grid-cols-12">
+    <!-- HERO -->
+    <section data-reveal class="pt-24 mb-8 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40">
+      <div class="grid grid-cols-1 lg:grid-cols-12">
 
-      <!-- IMAGE en premier sur mobile, à droite en desktop -->
-      <div class="lg:col-span-7 order-1 lg:order-2">
-        <div class="px-6 sm:px-20 md:px-20 lg:pl-0 lg:pr-30">
-          <div class="relative w-full">
-            <img src="./src/images/villa-hero.webp" alt="Maison 3D" loading="lazy"
-              class="w-full h-auto object-contain mx-auto">
-            <img src="./src/images/cadre.svg" alt="" aria-hidden="true" loading="lazy"
-              class="hidden lg:block absolute w-[50%] bottom-[-5%] lg:right-[-5.5%] right-[-5.5%] pointer-events-none">
+        <!-- IMAGE en premier sur mobile, à droite en desktop -->
+        <div class="lg:col-span-7 order-1 lg:order-2">
+          <div class="px-6 sm:px-20 md:px-20 lg:pl-0 lg:pr-30">
+            <div class="relative w-full">
+              <img src="./src/images/villa-hero.webp" srcset="
+    ./src/images/villa-hero-640.webp 640w,
+    ./src/images/villa-hero.webp 1024w
+  " sizes="(max-width: 1024px) calc(100vw - 3rem), 58vw" width="1024" height="706" loading="eager" fetchpriority="high"
+                decoding="async" alt="Maison 3D" class="w-full h-auto object-contain mx-auto">
+              <img src="./src/images/cadre.svg" alt="" aria-hidden="true" loading="lazy"
+                class="hidden lg:block absolute w-[50%] bottom-[-5%] lg:right-[-5.5%] right-[-5.5%] pointer-events-none">
+            </div>
+          </div>
+        </div>
+
+        <!-- TEXTE en 2e sur mobile, à gauche en desktop -->
+        <div class="lg:col-span-5 order-2 lg:order-1 bg-transparent sm:bg-pink-100 p-6 sm:p-8 md:p-10 lg:p-12"
+          aria-labelledby="hero-title">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 items-center justify-items-start gap-4 h-full lg:flex lg:flex-col lg:justify-center lg:items-start">
+            <div class="relative w-full top-[-40px] sm:top-0">
+              <h1 id="hero-title"
+                class="bg-pink-100 px-3 py-4 lg:bg-transparent lg:px-0 lg:py-0 md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-medium text-left">
+                Des projections qui reflètent la réalité !
+              </h1>
+            </div>
+
+            <div class="lg:mt-6 flex relative justify-end lg:justify-start">
+              <a href="/devis.html" rel="noopener noreferrer" target="_blank"
+                class="relative top-[-70px] sm:top-0 btn-1 group text-white bg-teal-500 relative overflow-hidden inline-block px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base cursor-pointer">
+                <span class="absolute inset-0 pointer-events-none z-0"></span>
+                <span class="text-md md:text-lg lg:text-lg relative z-10 flex items-center gap-2">
+                  Modéliser votre projet
+                  <img src="./src/images/arrow-up-right.svg" alt="" aria-hidden="true" class="w-auto h-full"
+                    loading="lazy" />
+                </span>
+              </a>
+            </div>
+
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- TEXTE en 2e sur mobile, à gauche en desktop -->
-      <div class="lg:col-span-5 order-2 lg:order-1 bg-transparent sm:bg-pink-100 p-6 sm:p-8 md:p-10 lg:p-12" aria-labelledby="hero-title">
-        <div
-          class="grid grid-cols-1 sm:grid-cols-2 items-center justify-items-start gap-4 h-full lg:flex lg:flex-col lg:justify-center lg:items-start">
-          <div class="relative w-full top-[-40px] sm:top-0">
-            <h1 id="hero-title"
-              class="bg-pink-100 px-3 py-4 lg:bg-transparent lg:px-0 lg:py-0 md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-medium text-left">
-              Des projections qui reflètent la réalité !
-            </h1>
+    <!-- Why Choose Us Section -->
+    <section data-reveal class="relative mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24" aria-labelledby="why-title">
+      <div
+        class=" h-[80%] top-[56%] sm:top-[57%] sm:h-[35rem] md:top-[57%] absolute left-0 right-0 top-1/2 transform -translate-y-1/2 h-20 sm:h-24 md:h-28 lg:h-32 xl:h-[112px] bg-pink-100 z-0"
+        aria-hidden="true">
+      </div>
+
+      <div class="figma-container relative z-10">
+        <h2 id="why-title"
+          class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
+          Pourquoi choisir 3D Creation by Salita ?
+        </h2>
+
+        <div class="figma-grid">
+          <div class=" col-span-12 md:col-span-4 bg-white text-center feature-icon  p-4 sm:p-6 mb-3">
+            <div class="my-6 w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 sm:mb-4 bg-white flex items-center justify-center">
+              <img src="./src/images/icone-immersion.webp" alt="cube en 3D avec une face pleine" loading="lazy"
+                class="w-full h-full object-contain">
+            </div>
+            <h3 class="label text-lg text-black mb-2">Immersion</h3>
+            <p class="my-6 px-2 sm:px-4 lg:px-5 text-sm sm:text-base">
+              Des projections 3D conçues pour une meilleure visualisation de votre projet et une expérience immersive
+            </p>
           </div>
 
-          <div class="lg:mt-6 flex relative justify-end lg:justify-start">
+          <div data-reveal style="transition-delay:150ms"
+            class="col-span-12 md:col-span-4 bg-white text-center feature-icon p-4 sm:p-6 mb-3">
+            <div class="my-6 w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 sm:mb-4 bg-white flex items-center justify-center">
+              <img src="./src/images/icone-transparence.webp" loading="lazy"
+                alt="pictogramme de deux personnes avec une bulle de dialogue" class="w-full h-full object-contain">
+            </div>
+            <h3 class="text-lg sm:text-xl font-medium mb-2 text-black">Transparence</h3>
+            <p class="my-6 px-2 sm:px-4 lg:px-5 text-sm sm:text-base">
+              Une communication honnête, une relation de confiance et un accompagnement sur mesure car chaque projet est
+              unique
+            </p>
+          </div>
+
+          <div data-reveal style="transition-delay:300ms"
+            class="col-span-12 md:col-span-4 bg-white text-center feature-icon  p-4 sm:p-6 mb-3">
+            <div class="my-6 w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 sm:mb-4 bg-white flex items-center justify-center">
+              <img src="./src/images/icone-abordable.webp" alt="tirelire cochon avec une pièce de monnaie"
+                loading="lazy" class="w-full h-full object-contain">
+            </div>
+            <h3 class="text-lg sm:text-xl font-medium mb-2 text-black">Abordable</h3>
+            <p class="my-6 px-2 sm:px-4 lg:px-5 text-sm sm:text-base">
+              Des tarifs attractifs et forfaitaires parce que s'offrir des perspectives 3D ne devrait pas être un luxe
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section data-reveal id="services" class="relative mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24"
+      aria-labelledby="services-title">
+      <div
+        class="absolute top-[53%] sm:top-[57%] md:top-[57%] lg:top-[58%] xl:top-[60%] 2xl:top-[63%] left-0 right-0 transform -translate-y-1/2 h-50 h-[70%] sm:h-[62%] lg:h-[380px] bg-pink-100 z-0"
+        aria-hidden="true">
+      </div>
+
+      <div class="figma-container relative z-10">
+        <h2 id="services-title"
+          class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl text-center text-teal-500 mb-6 sm:mb- md:mb-8 lg:mb-12 xl:mb-8">
+          Nos services de modélisation 3D
+        </h2>
+
+        <p class="text-center text-sm sm:text-base mb-8 sm:mb-10 md:mb-12 xl:mb-14 max-w-2xl mx-auto px-4">
+          Transformez votre projet de construction, rénovation ou décoration avec 3D Creation by Salita, qui donne vie à
+          vos idées par des images 3D réalistes et immersives.
+        </p>
+
+        <div class="figma-grid">
+          <div
+            class="col-span-12 sm:col-span-6 lg:col-span-4 bg-white flex flex-col h-full rounded-none transition duration-300">
+            <img src="./src/images/service-1-amenagement-interieur..webp" alt="Aménagements intérieurs" loading="lazy"
+              class="p-1.5 w-full aspect-[3/2] object-cover rounded-none">
+            <div class="p-3 sm:p-4 flex-1 flex items-center justify-center">
+              <h3 class="text-md lg:text-md xl:text-lg text-teal-500 text-center">Aménagements intérieurs
+              </h3>
+            </div>
+          </div>
+
+          <div data-reveal style="transition-delay:100ms"
+            class="col-span-12 sm:col-span-6 lg:col-span-4 bg-white flex flex-col h-full rounded-none transition duration-300">
+            <img src="./src/images/service-5-villa.webp" alt="Villas & Maisons" loading="lazy"
+              class="p-1.5 w-full aspect-[3/2] object-cover rounded-none">
+            <div class="p-3 sm:p-4 flex-1 flex items-center justify-center">
+              <h3 class="text-md lg:text-md xl:text-lg xl:text-lg  text-teal-500 text-center">Villas & Maisons</h3>
+            </div>
+          </div>
+
+          <div data-reveal style="transition-delay:200ms"
+            class="col-span-12 sm:col-span-6 lg:col-span-4 bg-white flex flex-col h-full rounded-none transition duration-300">
+            <img src="./src/images/service-3-immeuble.webp" alt="Immeubles & Bâtiments" loading="lazy"
+              class="p-1.5 w-full aspect-[3/2] object-cover rounded-none">
+            <div class="p-3 sm:p-4 flex-1 flex items-center justify-center">
+              <h3 class="text-md lg:text-md xl:text-lg xl:text-lg  text-teal-500 text-center">Immeubles & Bâtiments</h3>
+            </div>
+          </div>
+
+          <div data-reveal style="transition-delay:300ms"
+            class="col-span-12 sm:col-span-6 lg:col-span-4 bg-white flex flex-col h-full rounded-none transition duration-300">
+            <img src="./src/images/service-6-avec-rendu.webp" loading="lazy" alt="Espaces Extérieurs & Paysages"
+              class="p-1.5 w-full aspect-[3/2] object-cover rounded-none">
+            <div class="p-3 sm:p-4 flex-1 flex items-center justify-center">
+              <h3 class="text-md lg:text-md xl:text-lg text-teal-500 text-center">Espaces extérieurs &
+                Paysages</h3>
+            </div>
+          </div>
+
+          <div data-reveal style="transition-delay:400ms"
+            class="col-span-12 sm:col-span-6 lg:col-span-4 bg-white flex flex-col h-full rounded-none transition duration-300">
+            <img src="./src/images/service-4-quartier.webp" alt="Quartiers & Aménagements urbains" loading="lazy"
+              class="p-1.5 w-full aspect-[3/2] object-cover rounded-none">
+            <div class="p-3 sm:p-4 flex-1 flex items-center justify-center">
+              <h3 class="text-md lg:text-md xl:text-lg text-teal-500 text-center">Quartiers & Aménagements
+                urbains</h3>
+            </div>
+          </div>
+
+          <div data-reveal style="transition-delay:500ms"
+            class="col-span-12 sm:col-span-6 lg:col-span-4 flex justify-center items-center">
             <a href="/devis.html" rel="noopener noreferrer" target="_blank"
-              class="relative top-[-70px] sm:top-0 btn-1 group text-white bg-teal-500 relative overflow-hidden inline-block px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base cursor-pointer">
+              class="btn-1 bg-teal-500 text-white relative overflow-hidden inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 mt-3 sm:mt-4 text-sm sm:text-base cursor-pointer gap-2 h-10 sm:h-12">
               <span class="absolute inset-0 pointer-events-none z-0"></span>
-              <span class="text-md md:text-lg lg:text-lg relative z-10 flex items-center gap-2">
-                Modéliser votre projet
-                <img src="./src/images/arrow-up-right.svg" alt="" aria-hidden="true" class="w-auto h-full" loading="lazy" />
-              </span>
+              <span class="text-md md:text-lg lg:text-lg relative z-10">Estimer votre projet</span>
+              <img src="./src/images/arrow-up-right.svg" alt="" aria-hidden="true"
+                class="h-full w-auto relative z-10 object-contain" loading="lazy" />
             </a>
-          </div>
 
+          </div>
         </div>
+    </section>
+
+    <!-- 2e part -->
+    <section data-reveal
+      class="relative bg-transparent sm:bg-pink-100 items-center lg:bg-transparent sm:py-12 md:py-16 mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24"
+      aria-labelledby="options-title">
+      <div
+        class="absolute inset-0 bg-transparent lg:bg-pink-100 h-48 sm:h-56 md:h-64 lg:h-[300px] top-1/2 -translate-y-1/2 transform z-0"
+        aria-hidden="true">
       </div>
-    </div>
-  </section>
 
-  <!-- Why Choose Us Section -->
-  <section data-reveal class="relative mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24" aria-labelledby="why-title">
-    <div
-      class=" h-[80%] top-[56%] sm:top-[57%] sm:h-[35rem] md:top-[57%] absolute left-0 right-0 top-1/2 transform -translate-y-1/2 h-20 sm:h-24 md:h-28 lg:h-32 xl:h-[112px] bg-pink-100 z-0" aria-hidden="true">
-    </div>
-
-    <div class="figma-container relative z-10">
-      <h2 id="why-title"
-        class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
-        Pourquoi choisir 3D Creation by Salita ?
-      </h2>
-
-      <div class="figma-grid">
-        <div class=" col-span-12 md:col-span-4 bg-white text-center feature-icon  p-4 sm:p-6 mb-3">
-          <div class="my-6 w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 sm:mb-4 bg-white flex items-center justify-center">
-            <img src="./src/images/icone-immersion.webp" alt="cube en 3D avec une face pleine" loading="lazy"
-              class="w-full h-full object-contain">
-          </div>
-          <h3 class="label text-lg text-black mb-2">Immersion</h3>
-          <p class="my-6 px-2 sm:px-4 lg:px-5 text-sm sm:text-base">
-            Des projections 3D conçues pour une meilleure visualisation de votre projet et une expérience immersive
-          </p>
-        </div>
-
-        <div data-reveal style="transition-delay:150ms" class="col-span-12 md:col-span-4 bg-white text-center feature-icon p-4 sm:p-6 mb-3">
-          <div class="my-6 w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 sm:mb-4 bg-white flex items-center justify-center">
-            <img src="./src/images/icone-transparence.webp" loading="lazy"
-              alt="pictogramme de deux personnes avec une bulle de dialogue" class="w-full h-full object-contain">
-          </div>
-          <h3 class="text-lg sm:text-xl font-medium mb-2 text-black">Transparence</h3>
-          <p class="my-6 px-2 sm:px-4 lg:px-5 text-sm sm:text-base">
-            Une communication honnête, une relation de confiance et un accompagnement sur mesure car chaque projet est
-            unique
-          </p>
-        </div>
-
-        <div data-reveal style="transition-delay:300ms" class="col-span-12 md:col-span-4 bg-white text-center feature-icon  p-4 sm:p-6 mb-3">
-          <div class="my-6 w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 sm:mb-4 bg-white flex items-center justify-center">
-            <img src="./src/images/icone-abordable.webp" alt="tirelire cochon avec une pièce de monnaie" loading="lazy"
-              class="w-full h-full object-contain">
-          </div>
-          <h3 class="text-lg sm:text-xl font-medium mb-2 text-black">Abordable</h3>
-          <p class="my-6 px-2 sm:px-4 lg:px-5 text-sm sm:text-base">
-            Des tarifs attractifs et forfaitaires parce que s'offrir des perspectives 3D ne devrait pas être un luxe
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section data-reveal id="services" class="relative mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24" aria-labelledby="services-title">
-    <div
-      class="absolute top-[53%] sm:top-[57%] md:top-[57%] lg:top-[58%] xl:top-[60%] 2xl:top-[63%] left-0 right-0 transform -translate-y-1/2 h-50 h-[70%] sm:h-[62%] lg:h-[380px] bg-pink-100 z-0" aria-hidden="true">
-    </div>
-
-    <div class="figma-container relative z-10">
-      <h2 id="services-title"
-        class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl text-center text-teal-500 mb-6 sm:mb- md:mb-8 lg:mb-12 xl:mb-8">
-        Nos services de modélisation 3D
-      </h2>
-
-      <p class="text-center text-sm sm:text-base mb-8 sm:mb-10 md:mb-12 xl:mb-14 max-w-2xl mx-auto px-4">
-        Transformez votre projet de construction, rénovation ou décoration avec 3D Creation by Salita, qui donne vie à
-        vos idées par des images 3D réalistes et immersives.
-      </p>
-
-      <div class="figma-grid">
-        <div 
-          class="col-span-12 sm:col-span-6 lg:col-span-4 bg-white flex flex-col h-full rounded-none transition duration-300">
-          <img src="./src/images/service-1-amenagement-interieur..webp" alt="Aménagements intérieurs" loading="lazy"
-            class="p-1.5 w-full aspect-[3/2] object-cover rounded-none">
-          <div class="p-3 sm:p-4 flex-1 flex items-center justify-center">
-            <h3 class="text-md lg:text-md xl:text-lg text-teal-500 text-center">Aménagements intérieurs
+      <div class="figma-container relative z-10">
+        <div class="figma-grid items-center">
+          <div class="mt-12 sm:mt-0 lg:items-left justify-center col-span-12 lg:col-span-6 flex items-center h-full">
+            <h3 id="options-title"
+              class="pb-4 text-center  lg:text-left pr-4 sm:pr-6 lg:pr-8 text-sm sm:text-base lg:text-md xl:text-lg">
+              Confiez-nous la modélisation 3D de votre projet pour un rendu précis et adapté à vos besoins.
+              <br><br>
+              Deux options s'offrent à vous :
             </h3>
           </div>
-        </div>
 
-        <div data-reveal style="transition-delay:100ms"
-          class="col-span-12 sm:col-span-6 lg:col-span-4 bg-white flex flex-col h-full rounded-none transition duration-300">
-          <img src="./src/images/service-5-villa.webp" alt="Villas & Maisons" loading="lazy"
-            class="p-1.5 w-full aspect-[3/2] object-cover rounded-none">
-          <div class="p-3 sm:p-4 flex-1 flex items-center justify-center">
-            <h3 class="text-md lg:text-md xl:text-lg xl:text-lg  text-teal-500 text-center">Villas & Maisons</h3>
-          </div>
-        </div>
+          <div data-reveal style="transition-delay:150ms"
+            class="col-span-12 lg:col-span-6 flex flex-col gap-8 sm:gap-10">
+            <div class="relative w-full">
+              <img src="./src/images/service-6-avec-rendu.webp" alt="Modélisation 3D avec texture" loading="lazy"
+                class="w-full rounded-none">
+              <img src="./src/images/cadre.svg" alt="" aria-hidden="true" loading="lazy"
+                class="absolute w-[50%] bottom-[4%] sm:bottom-[2.2%] lg:bottom-[3%] right-[-5%] pointer-events-none">
+              <p class="text-sm sm:text-base lg:text-md text-left mt-2 text-teal-500">Avec texture</p>
+            </div>
 
-        <div data-reveal style="transition-delay:200ms"
-          class="col-span-12 sm:col-span-6 lg:col-span-4 bg-white flex flex-col h-full rounded-none transition duration-300">
-          <img src="./src/images/service-3-immeuble.webp" alt="Immeubles & Bâtiments" loading="lazy"
-            class="p-1.5 w-full aspect-[3/2] object-cover rounded-none">
-          <div class="p-3 sm:p-4 flex-1 flex items-center justify-center">
-            <h3 class="text-md lg:text-md xl:text-lg xl:text-lg  text-teal-500 text-center">Immeubles & Bâtiments</h3>
-          </div>
-        </div>
-
-        <div data-reveal style="transition-delay:300ms"
-          class="col-span-12 sm:col-span-6 lg:col-span-4 bg-white flex flex-col h-full rounded-none transition duration-300">
-          <img src="./src/images/service-6-avec-rendu.webp" loading="lazy" alt="Espaces Extérieurs & Paysages"
-            class="p-1.5 w-full aspect-[3/2] object-cover rounded-none">
-          <div class="p-3 sm:p-4 flex-1 flex items-center justify-center">
-            <h3 class="text-md lg:text-md xl:text-lg text-teal-500 text-center">Espaces extérieurs &
-              Paysages</h3>
-          </div>
-        </div>
-
-        <div data-reveal style="transition-delay:400ms"
-          class="col-span-12 sm:col-span-6 lg:col-span-4 bg-white flex flex-col h-full rounded-none transition duration-300">
-          <img src="./src/images/service-4-quartier.webp" alt="Quartiers & Aménagements urbains" loading="lazy"
-            class="p-1.5 w-full aspect-[3/2] object-cover rounded-none">
-          <div class="p-3 sm:p-4 flex-1 flex items-center justify-center">
-            <h3 class="text-md lg:text-md xl:text-lg text-teal-500 text-center">Quartiers & Aménagements
-              urbains</h3>
-          </div>
-        </div>
-
-        <div data-reveal style="transition-delay:500ms" class="col-span-12 sm:col-span-6 lg:col-span-4 flex justify-center items-center">
-          <a href="/devis.html" rel="noopener noreferrer" target="_blank"
-            class="btn-1 bg-teal-500 text-white relative overflow-hidden inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 mt-3 sm:mt-4 text-sm sm:text-base cursor-pointer gap-2 h-10 sm:h-12">
-            <span class="absolute inset-0 pointer-events-none z-0"></span>
-            <span class="text-md md:text-lg lg:text-lg relative z-10">Estimer votre projet</span>
-            <img src="./src/images/arrow-up-right.svg" alt="" aria-hidden="true" class="h-full w-auto relative z-10 object-contain"
-              loading="lazy" />
-          </a>
-
-        </div>
-      </div>
-  </section>
-
-  <!-- 2e part -->
-  <section data-reveal
-    class="relative bg-transparent sm:bg-pink-100 items-center lg:bg-transparent sm:py-12 md:py-16 mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24" aria-labelledby="options-title">
-    <div
-      class="absolute inset-0 bg-transparent lg:bg-pink-100 h-48 sm:h-56 md:h-64 lg:h-[300px] top-1/2 -translate-y-1/2 transform z-0" aria-hidden="true">
-    </div>
-
-    <div class="figma-container relative z-10">
-      <div class="figma-grid items-center">
-        <div class="mt-12 sm:mt-0 lg:items-left justify-center col-span-12 lg:col-span-6 flex items-center h-full">
-          <h3 id="options-title" class="pb-4 text-center  lg:text-left pr-4 sm:pr-6 lg:pr-8 text-sm sm:text-base lg:text-md xl:text-lg">
-            Confiez-nous la modélisation 3D de votre projet pour un rendu précis et adapté à vos besoins.
-            <br><br>
-            Deux options s'offrent à vous :
-          </h3>
-        </div>
-
-        <div data-reveal style="transition-delay:150ms" class="col-span-12 lg:col-span-6 flex flex-col gap-8 sm:gap-10">
-          <div class="relative w-full">
-            <img src="./src/images/service-6-avec-rendu.webp" alt="Modélisation 3D avec texture" loading="lazy"
-              class="w-full rounded-none">
-            <img src="./src/images/cadre.svg" alt="" aria-hidden="true" loading="lazy"
-              class="absolute w-[50%] bottom-[4%] sm:bottom-[2.2%] lg:bottom-[3%] right-[-5%] pointer-events-none">
-            <p class="text-sm sm:text-base lg:text-md text-left mt-2 text-teal-500">Avec texture</p>
-          </div>
-
-          <div data-reveal style="transition-delay:300ms" class="relative w-full">
-            <img src="./src/images/service-7-sans-rendu.webp" alt="Modélisation 3D sans texture" loading="lazy"
-              class="w-full rounded-none">
-            <img src="./src/images/cadre.svg" alt="" aria-hidden="true" loading="lazy"
-              class="absolute w-[50%] bottom-[4%] sm:bottom-[2.2%] lg:bottom-[3%] left-[-5%] scale-x-[-1] pointer-events-none">
-            <p class="text-sm sm:text-base lg:text-md text-right mt-2 text-teal-500">Sans texture</p>
+            <div data-reveal style="transition-delay:300ms" class="relative w-full">
+              <img src="./src/images/service-7-sans-rendu.webp" alt="Modélisation 3D sans texture" loading="lazy"
+                class="w-full rounded-none">
+              <img src="./src/images/cadre.svg" alt="" aria-hidden="true" loading="lazy"
+                class="absolute w-[50%] bottom-[4%] sm:bottom-[2.2%] lg:bottom-[3%] left-[-5%] scale-x-[-1] pointer-events-none">
+              <p class="text-sm sm:text-base lg:text-md text-right mt-2 text-teal-500">Sans texture</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Process Section -->
-  <section data-reveal class="relative py-8 sm:py-12 md:py-16 mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24" aria-labelledby="steps-title">
-    <div class="absolute w-full bg-pink-100 z-0
+    <!-- Process Section -->
+    <section data-reveal class="relative py-8 sm:py-12 md:py-16 mb-16 sm:mb-16 md:mb-18 lg:mb-24 xl:mb-24"
+      aria-labelledby="steps-title">
+      <div class="absolute w-full bg-pink-100 z-0
     h-[70%] top-[18%]
     lg:top-[35%] lg:translate-y-0 lg:h-[80px] 
     xl:top-[35.5%]" aria-hidden="true">
-    </div>
-
-    <div class="figma-container relative z-10">
-      <h2 id="steps-title"
-        class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
-        Obtenez votre modélisation 3D en seulement 3 étapes
-      </h2>
-
-      <div class="figma-grid">
-        <div data-reveal style="transition-delay:100ms"
-          class="bg-white lg:bg-transparent col-span-12 lg:col-span-4 flex flex-col items-center text-center p-4 sm:p-6">
-          <img src="./src/images/Chiffre-1.svg" alt="Étape 1" class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-5"
-            loading="lazy" />
-
-          <p class="label text-lg sm:text-xl mb-4 sm:mb-6">Demander un devis</p>
-
-          <p class="text-sm sm:text-base">
-            Obtenez un devis personnalisé en remplissant notre
-            <a href="/devis.html" rel="noopener noreferrer" target="_blank"
-              class="text-teal-500 font-medium underline transition duration-200">
-              formulaire</a>
-            selon vos besoins spécifiques pour une solution sur mesure
-          </p>
-        </div>
-
-        <div data-reveal style="transition-delay:200ms"
-          class="bg-white lg:bg-transparent col-span-12 lg:col-span-4 flex flex-col items-center text-center p-4 sm:p-6">
-          <img src="./src/images/Chiffre-2.svg" alt="Étape 2" class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-5"
-            loading="lazy" />
-          <p class="label text-lg sm:text-xl mb-4 sm:mb-6">Envoi de votre projet</p>
-          <p class="text-sm sm:text-base">
-            Discutez de votre projet 3D avec nous pour une réalisation fidèle à la réalité, en nous
-            fournissant plans et documents nécessaires
-          </p>
-        </div>
-
-        <div data-reveal style="transition-delay:300ms"
-          class="bg-white lg:bg-transparent col-span-12 lg:col-span-4 flex flex-col items-center text-center p-4 sm:p-6">
-          <img src="./src/images/Chiffre-3.svg" alt="Étape 3" class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-5"
-            loading="lazy" />
-          <p class="label text-lg sm:text-xl mb-4 sm:mb-6">Réception du projet</p>
-          <p class="text-sm sm:text-base">Recevez vos images 3D dans les délais convenus, avec plusieurs modifications incluses (selon le mandat), pour garantir un résultat à la hauteur de vos attentes
-          </p>
-        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Realizations Section -->
-  <section data-reveal id="realisations" class="mb-16 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40" aria-labelledby="reals-title">
-    <div class="figma-container">
-      <h2 id="reals-title"
-        class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl  text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
-        Nos réalisations 3D
-      </h2>
-      <p class="text-center text-sm sm:text-base mb-8 sm:mb-10 md:mb-12 xl:mb-14 max-w-2xl mx-auto px-4">
-        Découvrez nos modélisations 3D réalistes et immersives. Chaque projet repose sur une collaboration de confiance, alliant précision et créativité pour transformer votre vision en réalité.
-      </p>
+      <div class="figma-container relative z-10">
+        <h2 id="steps-title"
+          class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
+          Obtenez votre modélisation 3D en seulement 3 étapes
+        </h2>
 
-      <!-- Carousel -->
-      <div class="carousel mb-8 sm:mb-10 md:mb-12"
-           role="region"
-           aria-roledescription="carousel"
-           aria-label="Nos réalisations 3D">
-        <div class="carousel-inner flex transition-transform duration-500 ease-out" aria-live="off">
-          <div class="carousel-item min-w-full" id="slide-1" role="group" aria-roledescription="slide" aria-label="1 sur 4">
-            <img src="./src/images/realisations-1-amenagement-interieur-sejour.webp" alt="Réalisation 1" loading="lazy"
-              class="w-full h-full object-contain rounded-none">
+        <div class="figma-grid">
+          <div data-reveal style="transition-delay:100ms"
+            class="bg-white lg:bg-transparent col-span-12 lg:col-span-4 flex flex-col items-center text-center p-4 sm:p-6">
+            <img src="./src/images/Chiffre-1.svg" alt="Étape 1" class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-5"
+              loading="lazy" />
+
+            <p class="label text-lg sm:text-xl mb-4 sm:mb-6">Demander un devis</p>
+
+            <p class="text-sm sm:text-base">
+              Obtenez un devis personnalisé en remplissant notre
+              <a href="/devis.html" rel="noopener noreferrer" target="_blank"
+                class="text-teal-500 font-medium underline transition duration-200">
+                formulaire</a>
+              selon vos besoins spécifiques pour une solution sur mesure
+            </p>
           </div>
-          <div class="carousel-item min-w-full" id="slide-2" role="group" aria-roledescription="slide" aria-label="2 sur 4" aria-hidden="true">
-            <img src="./src/images/realisations-2-amenagement-paysager.webp" alt="Réalisation 2" loading="lazy"
-              class="w-full h-full object-contain rounded-none">
+
+          <div data-reveal style="transition-delay:200ms"
+            class="bg-white lg:bg-transparent col-span-12 lg:col-span-4 flex flex-col items-center text-center p-4 sm:p-6">
+            <img src="./src/images/Chiffre-2.svg" alt="Étape 2" class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-5"
+              loading="lazy" />
+            <p class="label text-lg sm:text-xl mb-4 sm:mb-6">Envoi de votre projet</p>
+            <p class="text-sm sm:text-base">
+              Discutez de votre projet 3D avec nous pour une réalisation fidèle à la réalité, en nous
+              fournissant plans et documents nécessaires
+            </p>
           </div>
-          <div class="carousel-item min-w-full" id="slide-3" role="group" aria-roledescription="slide" aria-label="3 sur 4" aria-hidden="true">
-            <img src="./src/images/realisations-3-maison-individuelle.webp" alt="Réalisation 3" loading="lazy"
-              class="w-full h-full object-contain rounded-none">
-          </div>
-          <div class="carousel-item min-w-full" id="slide-4" role="group" aria-roledescription="slide" aria-label="4 sur 4" aria-hidden="true">
-            <img src="./src/images/realisations-4-villa.webp" alt="Réalisation 4" loading="lazy"
-              class="w-full h-full object-contain rounded-none">
+
+          <div data-reveal style="transition-delay:300ms"
+            class="bg-white lg:bg-transparent col-span-12 lg:col-span-4 flex flex-col items-center text-center p-4 sm:p-6">
+            <img src="./src/images/Chiffre-3.svg" alt="Étape 3" class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-5"
+              loading="lazy" />
+            <p class="label text-lg sm:text-xl mb-4 sm:mb-6">Réception du projet</p>
+            <p class="text-sm sm:text-base">Recevez vos images 3D dans les délais convenus, avec plusieurs modifications
+              incluses (selon le mandat), pour garantir un résultat à la hauteur de vos attentes
+            </p>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Groupe indicateurs + contrôles -->
-      <div class="flex flex-col items-center gap-4 mt-4 mb-8 sm:mb-10 md:mb-12">
-        <div class="flex items-center gap-4 px-4 py-2">
-          <!-- Bouton précédent (carré) -->
-          <button class="carousel-prev w-10 h-10 flex items-center justify-center border-[1.7px] border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white transition"
-                  aria-label="Image précédente" type="button">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M12.707 15.707a1 1 0 0 1-1.414 0l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 1 1 1.414 1.414L8.414 10l4.293 4.293a1 1 0 0 1 0 1.414z" clip-rule="evenodd"/>
-                  </svg>
-                </button>
-
-          <!-- Indicateurs -->
-          <div class="flex items-center gap-2" role="tablist" aria-label="Indicateurs du carrousel">
-            <button class="carousel-indicator active w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rounded-full bg-teal-500/80"
-                    type="button" role="tab" aria-controls="slide-1" aria-selected="true" aria-current="true" aria-label="Aller à la diapo 1"></button>
-            <button class="carousel-indicator w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rounded-full bg-gray-300"
-                    type="button" role="tab" aria-controls="slide-2" aria-selected="false" aria-label="Aller à la diapo 2"></button>
-            <button class="carousel-indicator w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rounded-full bg-gray-300"
-                    type="button" role="tab" aria-controls="slide-3" aria-selected="false" aria-label="Aller à la diapo 3"></button>
-            <button class="carousel-indicator w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rounded-full bg-gray-300"
-                    type="button" role="tab" aria-controls="slide-4" aria-selected="false" aria-label="Aller à la diapo 4"></button>
-          </div>
-
-          <!-- Bouton suivant (carré) -->
-          <button
-            class="carousel-next w-10 h-10 flex items-center justify-center border-[1.7px] border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white transition"
-            aria-label="Image suivante" type="button">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5" aria-hidden="true">
-              <path fill-rule="evenodd" d="M7.293 4.293a1 1 0 0 1 1.414 0l5 5a1 1 0 0 1 0 1.414l-5 5a1 1 0 1 1-1.414-1.414L11.586 10 7.293 5.707a1 1 0 0 1 0-1.414z" clip-rule="evenodd"/>
-            </svg>
-          </button>
-
-          <!-- Play / Pause (carré) -->
-        <button id="carousel-toggle"
-          class="w-10 h-10 flex items-center justify-center bg-teal-500 text-white hover:bg-teal-600 transition"
-          aria-pressed="true"
-          aria-label="Mettre en pause le carrousel"
-          type="button">
-
-          <img
-            id="carousel-icon"
-            src="/src/images/pause.svg"
-            alt="icone pause"
-            class="w-4 h-4"
-            aria-hidden="true">
-        </button>
-        </div>
-      <!-- Section Instagram -->
-      <div class="mt-12 sm:mt-14 md:mt-16 text-center">
-        <p class="text-sm sm:text-base mb-4">
-          Suivez-nous sur Instagram pour voir plus de modélisations 3D<br>
-          <a href="https://www.instagram.com/3dcreation_by_salita" rel="noopener noreferrer" target="_blank"
-            class="text-teal-500 underline hover:text-teal-700">
-            @3dcreation_by_salita
-          </a>
+    <!-- Realizations Section -->
+    <section data-reveal id="realisations" class="mb-16 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40"
+      aria-labelledby="reals-title">
+      <div class="figma-container">
+        <h2 id="reals-title"
+          class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl  text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
+          Nos réalisations 3D
+        </h2>
+        <p class="text-center text-sm sm:text-base mb-8 sm:mb-10 md:mb-12 xl:mb-14 max-w-2xl mx-auto px-4">
+          Découvrez nos modélisations 3D réalistes et immersives. Chaque projet repose sur une collaboration de
+          confiance, alliant précision et créativité pour transformer votre vision en réalité.
         </p>
+
+        <!-- Carousel -->
+        <div class="carousel mb-8 sm:mb-10 md:mb-12" role="region" aria-roledescription="carousel"
+          aria-label="Nos réalisations 3D">
+          <div class="carousel-inner flex transition-transform duration-500 ease-out" aria-live="off">
+            <div class="carousel-item min-w-full" id="slide-1" role="group" aria-roledescription="slide"
+              aria-label="1 sur 4">
+              <img src="./src/images/realisations-1-amenagement-interieur-sejour.webp" alt="Réalisation 1"
+                loading="lazy" class="w-full h-full object-contain rounded-none">
+            </div>
+            <div class="carousel-item min-w-full" id="slide-2" role="group" aria-roledescription="slide"
+              aria-label="2 sur 4" aria-hidden="true">
+              <img src="./src/images/realisations-2-amenagement-paysager.webp" alt="Réalisation 2" loading="lazy"
+                class="w-full h-full object-contain rounded-none">
+            </div>
+            <div class="carousel-item min-w-full" id="slide-3" role="group" aria-roledescription="slide"
+              aria-label="3 sur 4" aria-hidden="true">
+              <img src="./src/images/realisations-3-maison-individuelle.webp" alt="Réalisation 3" loading="lazy"
+                class="w-full h-full object-contain rounded-none">
+            </div>
+            <div class="carousel-item min-w-full" id="slide-4" role="group" aria-roledescription="slide"
+              aria-label="4 sur 4" aria-hidden="true">
+              <img src="./src/images/realisations-4-villa.webp" alt="Réalisation 4" loading="lazy"
+                class="w-full h-full object-contain rounded-none">
+            </div>
+          </div>
+        </div>
+
+        <!-- Groupe indicateurs + contrôles -->
+        <div class="flex flex-col items-center gap-4 mt-4 mb-8 sm:mb-10 md:mb-12">
+          <div class="flex items-center gap-4 px-4 py-2">
+            <!-- Bouton précédent (carré) -->
+            <button
+              class="carousel-prev w-10 h-10 flex items-center justify-center border-[1.7px] border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white transition"
+              aria-label="Image précédente" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"
+                aria-hidden="true">
+                <path fill-rule="evenodd"
+                  d="M12.707 15.707a1 1 0 0 1-1.414 0l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 1 1 1.414 1.414L8.414 10l4.293 4.293a1 1 0 0 1 0 1.414z"
+                  clip-rule="evenodd" />
+              </svg>
+            </button>
+
+            <!-- Indicateurs -->
+            <div class="flex items-center gap-2" role="tablist" aria-label="Indicateurs du carrousel">
+              <button class="carousel-indicator active w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rounded-full bg-teal-500/80"
+                type="button" role="tab" aria-controls="slide-1" aria-selected="true" aria-current="true"
+                aria-label="Aller à la diapo 1"></button>
+              <button class="carousel-indicator w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rounded-full bg-gray-300" type="button"
+                role="tab" aria-controls="slide-2" aria-selected="false" aria-label="Aller à la diapo 2"></button>
+              <button class="carousel-indicator w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rounded-full bg-gray-300" type="button"
+                role="tab" aria-controls="slide-3" aria-selected="false" aria-label="Aller à la diapo 3"></button>
+              <button class="carousel-indicator w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rounded-full bg-gray-300" type="button"
+                role="tab" aria-controls="slide-4" aria-selected="false" aria-label="Aller à la diapo 4"></button>
+            </div>
+
+            <!-- Bouton suivant (carré) -->
+            <button
+              class="carousel-next w-10 h-10 flex items-center justify-center border-[1.7px] border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white transition"
+              aria-label="Image suivante" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"
+                aria-hidden="true">
+                <path fill-rule="evenodd"
+                  d="M7.293 4.293a1 1 0 0 1 1.414 0l5 5a1 1 0 0 1 0 1.414l-5 5a1 1 0 1 1-1.414-1.414L11.586 10 7.293 5.707a1 1 0 0 1 0-1.414z"
+                  clip-rule="evenodd" />
+              </svg>
+            </button>
+
+            <!-- Play / Pause (carré) -->
+            <button id="carousel-toggle"
+              class="w-10 h-10 flex items-center justify-center bg-teal-500 text-white hover:bg-teal-600 transition"
+              aria-pressed="true" aria-label="Mettre en pause le carrousel" type="button">
+
+              <img id="carousel-icon" src="/src/images/pause.svg" alt="icone pause" class="w-4 h-4" aria-hidden="true">
+            </button>
+          </div>
+          <!-- Section Instagram -->
+          <div class="mt-12 sm:mt-14 md:mt-16 text-center">
+            <p class="text-sm sm:text-base mb-4">
+              Suivez-nous sur Instagram pour voir plus de modélisations 3D<br>
+              <a href="https://www.instagram.com/3dcreation_by_salita" rel="noopener noreferrer" target="_blank"
+                class="text-teal-500 underline hover:text-teal-700">
+                @3dcreation_by_salita
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
-  </section>
+    </section>
 
-  <section data-reveal class="mb-16 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40" aria-labelledby="cta-title">
-    <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-3 xl:gap-6 lg:bg-transparent bg-pink-100 lg:py-0 py-20">
+    <section data-reveal class="mb-16 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40" aria-labelledby="cta-title">
+      <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-3 xl:gap-6 lg:bg-transparent bg-pink-100 lg:py-0 py-20">
 
-      <!-- Bloc rose -->
-      <div data-reveal style="transition-delay:150ms" class=" bg-pink-100 flex flex-col lg:items-left justify-center 
+        <!-- Bloc rose -->
+        <div data-reveal style="transition-delay:150ms" class=" bg-pink-100 flex flex-col lg:items-left justify-center 
     lg:h-[18.75rem]">
-        <h3 id="cta-title" class="lg:pl-24 lg:text-left text-center pl-0 text-xl md:text-xl lg:text-2xl xl:text-2xl">
-          Vous avez un projet en cours ?
-        </h3>
-      </div>
+          <h3 id="cta-title" class="lg:pl-24 lg:text-left text-center pl-0 text-xl md:text-xl lg:text-2xl xl:text-2xl">
+            Vous avez un projet en cours ?
+          </h3>
+        </div>
 
-      <!-- Bloc texte + bouton -->
-      <div data-reveal style="transition-delay:300ms" class="items-center lg:items-start bg-pink-100 lg:bg-transparent flex flex-col justify-center
+        <!-- Bloc texte + bouton -->
+        <div data-reveal style="transition-delay:300ms" class="items-center lg:items-start bg-pink-100 lg:bg-transparent flex flex-col justify-center
      px-6 md:px-12 ">
-        <p
-          class=" px-12 pb-6 sm:px-0 sm:pb-0 text-sm text-center lg:text-left sm:text-base lg:text-lg max-w-xl text-left mt-6">
-          Contactez-nous dès aujourd'hui pour demander votre devis sans engagement et donnez vie à vos plans
-          en 3D !
-        </p>
-        <a href="/devis.html" target="_blank" rel="noopener noreferrer" class="md:mt-6 lg:mt-7 xl:mt-9 2xl:mt-10 btn-1 bg-teal-500 text-white 
+          <p
+            class=" px-12 pb-6 sm:px-0 sm:pb-0 text-sm text-center lg:text-left sm:text-base lg:text-lg max-w-xl text-left mt-6">
+            Contactez-nous dès aujourd'hui pour demander votre devis sans engagement et donnez vie à vos plans
+            en 3D !
+          </p>
+          <a href="/devis.html" target="_blank" rel="noopener noreferrer" class="md:mt-6 lg:mt-7 xl:mt-9 2xl:mt-10 btn-1 bg-teal-500 text-white 
          relative overflow-hidden inline-flex items-center gap-2 px-4 py-2 
          sm:px-6 sm:py-3 mt-3 sm:mt-4 md:mt-8 text-sm sm:text-base cursor-pointer w-max h-10 sm:h-12">
-          <span class="absolute inset-0 pointer-events-none z-0"></span>
-          <span class="md:text-lg lg:text-lg relative z-10">Demander un devis</span>
-          <img src="./src/images/arrow-up-right.svg" loading="lazy" alt=""
-            class="h-full w-auto object-contain relative z-10" aria-hidden="true" />
-        </a>
+            <span class="absolute inset-0 pointer-events-none z-0"></span>
+            <span class="md:text-lg lg:text-lg relative z-10">Demander un devis</span>
+            <img src="./src/images/arrow-up-right.svg" loading="lazy" alt=""
+              class="h-full w-auto object-contain relative z-10" aria-hidden="true" />
+          </a>
+        </div>
+
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section data-reveal id="about" class="mb-16 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40" aria-labelledby="about-title">
-    <div class="figma-container">
-      <h2 id="about-title"
-        class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl  lg:text-start text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
-        À propos de l'entreprise
-      </h2>
-      <div class="figma-grid items-left sm:gap-12">
-        <div class="col-span-12 lg:col-span-4 sm:col-span-5 w-full">
-          <div class="relative w-full">
-            <img src="./src/images/photo-sarah.webp" alt="Fondatrice" class="w-full rounded-none" loading="lazy">
-            <img src="./src/images/cadre.svg" alt="" aria-hidden="true" loading="lazy"
-              class="absolute scale-x-[-1] w-[50%] lg:w-[90%] bottom-[0.5%] left-[-8%] md:left-[-10%] lg:bottom-[0.7rem] pointer-events-none">
-            <p class="mb-12 sm:mb-8 text-sm sm:text-base lg:text-md text-right mt-2 text-teal-500">Sarah</p>
+    <!-- About Section -->
+    <section data-reveal id="about" class="mb-16 sm:mb-16 md:mb-24 lg:mb-32 xl:mb-40" aria-labelledby="about-title">
+      <div class="figma-container">
+        <h2 id="about-title"
+          class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl  lg:text-start text-center text-teal-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14">
+          À propos de l'entreprise
+        </h2>
+        <div class="figma-grid items-left sm:gap-12">
+          <div class="col-span-12 lg:col-span-4 sm:col-span-5 w-full">
+            <div class="relative w-full">
+              <img src="./src/images/photo-sarah.webp" alt="Fondatrice" class="w-full rounded-none" loading="lazy">
+              <img src="./src/images/cadre.svg" alt="" aria-hidden="true" loading="lazy"
+                class="absolute scale-x-[-1] w-[50%] lg:w-[90%] bottom-[0.5%] left-[-8%] md:left-[-10%] lg:bottom-[0.7rem] pointer-events-none">
+              <p class="mb-12 sm:mb-8 text-sm sm:text-base lg:text-md text-right mt-2 text-teal-500">Sarah</p>
+            </div>
+          </div>
+          <div class="col-span-12 lg:col-span-8 sm:col-span-7">
+            <p class="text-sm sm:text-base mb-4 leading-relaxed">
+              Je suis ravie de vous annoncer le lancement de 3D Creation by Salita, mon entreprise
+              indépendante !
+              <br><br>
+              Avec plusieurs années d'expérience dans le notariat, spécialisée en immobilier et droit foncier,
+              je
+              mets à votre disposition mes compétences pour donner vie à vos projets en 3D. Mon expertise dans
+              ce
+              domaine m'aide à comprendre vos besoins et à réaliser des plans précis.
+              <br><br>
+              Ancienne conseillère à la clientèle dans une entreprise de construction de villas, ma
+              collaboration
+              étroite avec les dessinateurs en bâtiments a fait grandir en moi l'envie de dessiner et
+              conceptualiser des plans 3D. Aujourd'hui, je m'engage pleinement à offrir un service de
+              modélisation
+              3D pour votre projet.
+              <br><br>
+              Faites le premier pas vers votre projet 3D avec 3D Creation by Salita !
+            </p>
           </div>
         </div>
-        <div class="col-span-12 lg:col-span-8 sm:col-span-7">
-          <p class="text-sm sm:text-base mb-4 leading-relaxed">
-            Je suis ravie de vous annoncer le lancement de 3D Creation by Salita, mon entreprise
-            indépendante !
-            <br><br>
-            Avec plusieurs années d'expérience dans le notariat, spécialisée en immobilier et droit foncier,
-            je
-            mets à votre disposition mes compétences pour donner vie à vos projets en 3D. Mon expertise dans
-            ce
-            domaine m'aide à comprendre vos besoins et à réaliser des plans précis.
-            <br><br>
-            Ancienne conseillère à la clientèle dans une entreprise de construction de villas, ma
-            collaboration
-            étroite avec les dessinateurs en bâtiments a fait grandir en moi l'envie de dessiner et
-            conceptualiser des plans 3D. Aujourd'hui, je m'engage pleinement à offrir un service de
-            modélisation
-            3D pour votre projet.
-            <br><br>
-            Faites le premier pas vers votre projet 3D avec 3D Creation by Salita !
-          </p>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section data-reveal id="contact" class="bg-pink-100 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-40" aria-labelledby="contact-title">
-    <div class="figma-container">
-      <div class="figma-grid">
-        <!-- Colonne 1 : Logo aligné à gauche -->
-        <div class="col-span-12 md:col-span-4 flex items-start justify-center md:justify-start">
-          <img src="./src/images/logo.svg" alt="3D Creation by Salita" loading="lazy"
-            class="h-auto w-full max-w-[200px] sm:max-w-[250px]">
-        </div>
-
-        <!-- Colonne 2 : Contact & Horaires -->
-        <div class="col-span-12 md:col-span-4 text-center md:text-left mb-4">
-          <h4 id="contact-title" class="text-xl sm:text-2xl text-teal-500 mb-1 sm:mb-2">Contact</h4>
-          <p class="text-sm sm:text-base mb-6 sm:mb-8 ">
-            <a href="mailto:info@3dcreationbysalita.ch"
-              class="hover:underline hover:text-teal-700">info@3dcreationbysalita.ch</a><br>
-            <a href="tel:+41791077873" class="hover:underline hover:text-teal-700">+41 79 107 78 73</a>
-          </p>
-
-          <h4 class="text-xl sm:text-2xl text-teal-500 mb-1 sm:mb-2">Horaires</h4>
-          <p class="text-sm sm:text-base">
-            Lundi - Vendredi<br>
-            9:00 - 12:00<br>
-            14:00 - 17:00
-          </p>
-        </div>
-
-        <!-- Colonne 3 : Réseaux sociaux -->
-        <div class="col-span-12 md:col-span-4 text-center md:text-left">
-          <h4 class="text-xl sm:text-2xl text-teal-500 mb-1 sm:mb-2">Réseaux sociaux</h4>
-          <div class="flex space-x-4 justify-center md:justify-start">
-
-            <!-- Facebook -->
-            <a href="https://www.facebook.com/3dcreationbysalita?locale=fr_FR" aria-label="icone facebook"
-              rel="noopener noreferrer" target="_blank" class="hover:opacity-80 transition-opacity">
-              <img src="./src/images/facebook.svg" alt="Facebook" class="w-6 h-6 sm:w-7 sm:h-7">
-            </a>
-
-            <!-- Instagram -->
-            <a href="https://www.instagram.com/3dcreation_by_salita" target="_blank" aria-label="icone instagram"
-              rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
-              <img src="./src/images/instagram.svg" alt="Instagram" class="w-6 h-6 sm:w-7 sm:h-7">
-            </a>
-
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/sarah-guigner-sgr26/" target="_blank" aria-label="icone linkedin"
-              rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
-              <img src="./src/images/linkedin.svg" alt="LinkedIn" class="w-6 h-6 sm:w-7 sm:h-7">
-            </a>
-
-            <!-- Pinterest -->
-            <a href="https://ch.pinterest.com/3dcreation_by_salita/" target="_blank" aria-label="icone pinterest"
-              rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
-              <img src="./src/images/pinterest.svg" alt="Pinterest" class="w-6 h-6 sm:w-7 sm:h-7">
-            </a>
-
+    <!-- Contact Section -->
+    <section data-reveal id="contact" class="bg-pink-100 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-40"
+      aria-labelledby="contact-title">
+      <div class="figma-container">
+        <div class="figma-grid">
+          <!-- Colonne 1 : Logo aligné à gauche -->
+          <div class="col-span-12 md:col-span-4 flex items-start justify-center md:justify-start">
+            <img src="./src/images/logo.svg" alt="3D Creation by Salita" loading="lazy"
+              class="h-auto w-full max-w-[200px] sm:max-w-[250px]">
           </div>
-        </div>
 
+          <!-- Colonne 2 : Contact & Horaires -->
+          <div class="col-span-12 md:col-span-4 text-center md:text-left mb-4">
+            <h4 id="contact-title" class="text-xl sm:text-2xl text-teal-500 mb-1 sm:mb-2">Contact</h4>
+            <p class="text-sm sm:text-base mb-6 sm:mb-8 ">
+              <a href="mailto:info@3dcreationbysalita.ch"
+                class="hover:underline hover:text-teal-700">info@3dcreationbysalita.ch</a><br>
+              <a href="tel:+41791077873" class="hover:underline hover:text-teal-700">+41 79 107 78 73</a>
+            </p>
+
+            <h4 class="text-xl sm:text-2xl text-teal-500 mb-1 sm:mb-2">Horaires</h4>
+            <p class="text-sm sm:text-base">
+              Lundi - Vendredi<br>
+              9:00 - 12:00<br>
+              14:00 - 17:00
+            </p>
+          </div>
+
+          <!-- Colonne 3 : Réseaux sociaux -->
+          <div class="col-span-12 md:col-span-4 text-center md:text-left">
+            <h4 class="text-xl sm:text-2xl text-teal-500 mb-1 sm:mb-2">Réseaux sociaux</h4>
+            <div class="flex space-x-4 justify-center md:justify-start">
+
+              <!-- Facebook -->
+              <a href="https://www.facebook.com/3dcreationbysalita?locale=fr_FR" aria-label="icone facebook"
+                rel="noopener noreferrer" target="_blank" class="hover:opacity-80 transition-opacity">
+                <img src="./src/images/facebook.svg" alt="Facebook" class="w-6 h-6 sm:w-7 sm:h-7">
+              </a>
+
+              <!-- Instagram -->
+              <a href="https://www.instagram.com/3dcreation_by_salita" target="_blank" aria-label="icone instagram"
+                rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
+                <img src="./src/images/instagram.svg" alt="Instagram" class="w-6 h-6 sm:w-7 sm:h-7">
+              </a>
+
+              <!-- LinkedIn -->
+              <a href="https://www.linkedin.com/in/sarah-guigner-sgr26/" target="_blank" aria-label="icone linkedin"
+                rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
+                <img src="./src/images/linkedin.svg" alt="LinkedIn" class="w-6 h-6 sm:w-7 sm:h-7">
+              </a>
+
+              <!-- Pinterest -->
+              <a href="https://ch.pinterest.com/3dcreation_by_salita/" target="_blank" aria-label="icone pinterest"
+                rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
+                <img src="./src/images/pinterest.svg" alt="Pinterest" class="w-6 h-6 sm:w-7 sm:h-7">
+              </a>
+
+            </div>
+          </div>
+
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
   </main>
 
   <script src="./src/script.js" defer></script>
@@ -612,4 +641,5 @@
     </a>
   </div>
 </footer>
+
 </html>
